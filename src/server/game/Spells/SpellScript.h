@@ -707,7 +707,7 @@ private:
             : _auraApplication(auraApplication), _currentScriptState(currentScriptState), _defaultActionPrevented(defaultActionPrevented)
         {}
     };
-    typedef std::stack<ScriptStateStore> ScriptStateStack;
+    using ScriptStateStack = std::stack<ScriptStateStore>;
     ScriptStateStack m_scriptStates;
 
 public:

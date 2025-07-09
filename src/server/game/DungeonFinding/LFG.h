@@ -102,15 +102,14 @@ namespace lfg
 
     class Lfg5Guids;
 
-    typedef std::list<Lfg5Guids> Lfg5GuidsList;
-    typedef std::set<uint32> LfgDungeonSet;
-    typedef std::map<uint32, uint32> LfgLockMap;
-    typedef std::map<ObjectGuid, LfgLockMap> LfgLockPartyMap;
-    typedef GuidSet LfgGuidSet;
-    typedef GuidList LfgGuidList;
-    typedef std::map<ObjectGuid, uint8> LfgRolesMap;
-    typedef std::map<ObjectGuid, ObjectGuid> LfgGroupsMap;
-
+    using Lfg5GuidsList = std::list<Lfg5Guids>;
+    using LfgDungeonSet = std::set<uint32>;
+    using LfgLockMap = std::map<uint32, uint32>;
+    using LfgLockPartyMap = std::map<ObjectGuid, LfgLockMap>;
+    using LfgGuidSet = GuidSet;
+    using LfgGuidList = GuidList;
+    using LfgRolesMap = std::map<ObjectGuid, uint8>;
+    using LfgGroupsMap = std::map<ObjectGuid, ObjectGuid>;
     class Lfg5Guids
     {
     public:

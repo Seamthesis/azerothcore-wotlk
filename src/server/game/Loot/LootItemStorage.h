@@ -44,9 +44,8 @@ struct StoredLootItem
     uint32 conditionLootId;
 };
 
-typedef std::list<StoredLootItem> StoredLootItemList;
-typedef std::unordered_map<ObjectGuid, StoredLootItemList> LootItemContainer;
-
+using StoredLootItemList = std::list<StoredLootItem>;
+using LootItemContainer = std::unordered_map<ObjectGuid, StoredLootItemList>;
 class LootItemStorage
 {
 private:

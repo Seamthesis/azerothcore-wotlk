@@ -193,8 +193,7 @@ public:
         Other
     */
 
-    typedef typename T::Statements PreparedStatementIndex;
-
+    using PreparedStatementIndex = typename T::Statements;
     //! Automanaged (internally) pointer to a prepared statement object for usage in upper level code.
     //! Pointer is deleted in this->DirectExecute(PreparedStatement*), this->Query(PreparedStatement*) or PreparedStatementTask::~PreparedStatementTask.
     //! This object is not tied to the prepared statement on the MySQL context yet until execution.

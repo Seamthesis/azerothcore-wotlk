@@ -63,8 +63,7 @@ class BIHWrap
         }
     };
 
-    typedef G3D::Array<const T*> ObjArray;
-
+    using ObjArray = G3D::Array<const T*>;
     BIH m_tree;
     ObjArray m_objects;
     G3D::Table<const T*, uint32> m_obj2Idx;

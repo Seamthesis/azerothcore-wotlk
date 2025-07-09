@@ -1119,7 +1119,7 @@ protected:
     protected:
         WorldSession* Session;
     private:
-        typedef std::unordered_map<uint16, PacketCounter> PacketThrottlingMap;
+        using PacketThrottlingMap = std::unordered_map<uint16, PacketCounter>;
         // mark this member as "mutable" so it can be modified even in const functions
         mutable PacketThrottlingMap _PacketThrottlingMap;
 
@@ -1161,8 +1161,7 @@ private:
     uint8 m_expansion;
     uint32 m_total_time;
 
-    typedef std::list<AddonInfo> AddonsList;
-
+    using AddonsList = std::list<AddonInfo>;
     // Warden
     std::unique_ptr<Warden> _warden;                    // Remains nullptr if Warden system is not enabled by config
 

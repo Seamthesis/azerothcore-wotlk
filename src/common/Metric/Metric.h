@@ -39,8 +39,7 @@ enum MetricDataType
     METRIC_DATA_EVENT
 };
 
-typedef std::pair<std::string, std::string> MetricTag;
-
+using MetricTag = std::pair<std::string, std::string>;
 struct MetricData
 {
     std::string Category;

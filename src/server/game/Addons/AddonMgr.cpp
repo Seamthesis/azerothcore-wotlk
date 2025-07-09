@@ -30,8 +30,7 @@ namespace AddonMgr
     namespace
     {
         // List of saved addons (in DB).
-        typedef std::list<SavedAddon> SavedAddonsList;
-
+        using SavedAddonsList = std::list<SavedAddon>;
         SavedAddonsList m_knownAddons;
         BannedAddonList m_bannedAddons;
     }

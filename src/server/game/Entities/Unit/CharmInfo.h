@@ -74,8 +74,7 @@ struct GlobalCooldown
     uint32 cast_time;
 };
 
-typedef std::unordered_map<uint32 /*category*/, GlobalCooldown> GlobalCooldownList;
-
+using GlobalCooldownList = std::unordered_map<uint32 /*category*/, GlobalCooldown>;
 class GlobalCooldownMgr                                     // Shared by Player and CharmInfo
 {
 public:
@@ -121,8 +120,7 @@ struct UnitActionBarEntry
         packedData = (packedData & 0xFF000000) | UNIT_ACTION_BUTTON_ACTION(action);
     }
 };
-typedef UnitActionBarEntry CharmSpellInfo;
-
+using CharmSpellInfo = UnitActionBarEntry;
 struct CharmInfo
 {
 public:

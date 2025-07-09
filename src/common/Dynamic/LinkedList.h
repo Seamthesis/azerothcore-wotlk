@@ -138,15 +138,14 @@ public:
     class Iterator
     {
     public:
-        typedef std::bidirectional_iterator_tag     iterator_category;
-        typedef _Ty                                 value_type;
-        typedef ptrdiff_t                           difference_type;
-        typedef ptrdiff_t                           distance_type;
-        typedef _Ty*                                pointer;
-        typedef _Ty const*                          const_pointer;
-        typedef _Ty&                                reference;
-        typedef _Ty const&                          const_reference;
-
+        using iterator_category = std::bidirectional_iterator_tag;
+        using value_type = _Ty;
+        using difference_type = ptrdiff_t;
+        using distance_type = ptrdiff_t;
+        using pointer = _Ty*;
+        using const_pointer = _Ty const*;
+        using reference = _Ty&;
+        using const_reference = _Ty const&;
         Iterator() : _Ptr(0)
         {
             // construct with null node pointer
@@ -257,7 +256,7 @@ public:
         pointer _Ptr;                               // pointer to node
     };
 
-    typedef Iterator<LinkedListElement> iterator;
+    using iterator = Iterator<LinkedListElement>;
 };
 
 //============================================

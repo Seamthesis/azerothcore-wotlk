@@ -25,8 +25,7 @@ class Unit;
 
 namespace Movement
 {
-    typedef std::vector<Vector3> PointsArray;
-
+    using PointsArray = std::vector<Vector3>;
     union FacingInfo
     {
         struct

@@ -15897,8 +15897,7 @@ struct ProcTriggeredData
     }
 };
 
-typedef std::list< ProcTriggeredData > ProcTriggeredList;
-
+using ProcTriggeredList = std::list< ProcTriggeredData >;
 // List of auras that CAN be trigger but may not exist in spell_proc_event
 // in most case need for drop charges
 // in some types of aura need do additional check

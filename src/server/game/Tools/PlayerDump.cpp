@@ -54,8 +54,7 @@ struct FileCloser
             fclose(f);
     }
 };
-typedef std::unique_ptr<FILE, FileCloser> FileHandle;
-
+using FileHandle = std::unique_ptr<FILE, FileCloser>;
 inline FileHandle GetFileHandle(char const* path, char const* mode)
 {
     return FileHandle(fopen(path, mode), FileCloser());

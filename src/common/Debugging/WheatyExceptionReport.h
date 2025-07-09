@@ -109,8 +109,7 @@ struct SymbolPair
     DWORD _type;
     DWORD_PTR _offset;
 };
-typedef std::set<SymbolPair> SymbolPairs;
-
+using SymbolPairs = std::set<SymbolPair>;
 struct SymbolDetail
 {
     SymbolDetail() : Prefix(), Type(), Suffix(), Name(), Value(), Logged(false), HasChildren(false) {}

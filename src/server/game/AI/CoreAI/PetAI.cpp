@@ -232,7 +232,7 @@ void PetAI::UpdateAI(uint32 diff)
         if (me->IsPet() && me->ToPet()->IsPetGhoul() && me->GetPower(POWER_ENERGY) < 75)
             return;
 
-        typedef std::vector<std::pair<Unit*, Spell*> > TargetSpellList;
+        using TargetSpellList = std::vector<std::pair<Unit*, Spell*> >;
         TargetSpellList targetSpellStore;
 
         for (uint8 i = 0; i < me->GetPetAutoSpellSize(); ++i)

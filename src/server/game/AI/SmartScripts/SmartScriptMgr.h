@@ -27,8 +27,7 @@
 #include "SpellMgr.h"
 #include <limits>
 
-typedef uint32 SAIBool;
-
+using SAIBool = uint32;
 struct WayPoint
 {
     WayPoint(uint32 _id, float _x, float _y, float _z, Optional<float> _o, uint32 _delay)
@@ -1999,10 +1998,8 @@ public:
     static constexpr uint32 DEFAULT_PRIORITY = std::numeric_limits<uint32>::max();
 };
 
-typedef std::unordered_map<uint32, WayPoint*> WPPath;
-
-typedef std::vector<WorldObject*> ObjectVector;
-
+using WPPath = std::unordered_map<uint32, WayPoint*>;
+using ObjectVector = std::vector<WorldObject*>;
 class ObjectGuidVector
 {
 public:
@@ -2036,8 +2033,7 @@ private:
                 _objectVector.push_back(obj);
     }
 };
-typedef std::unordered_map<uint32, ObjectGuidVector> ObjectVectorMap;
-
+using ObjectVectorMap = std::unordered_map<uint32, ObjectGuidVector>;
 class SmartWaypointMgr
 {
     SmartWaypointMgr() {}
@@ -2060,12 +2056,10 @@ private:
 };
 
 // all events for a single entry
-typedef std::vector<SmartScriptHolder> SmartAIEventList;
-typedef std::list<SmartScriptHolder> SmartAIEventStoredList;
-
+using SmartAIEventList = std::vector<SmartScriptHolder>;
+using SmartAIEventStoredList = std::list<SmartScriptHolder>;
 // all events for all entries / guids
-typedef std::unordered_map<int32, SmartAIEventList> SmartAIEventMap;
-
+using SmartAIEventMap = std::unordered_map<int32, SmartAIEventList>;
 class SmartAIMgr
 {
     SmartAIMgr() {};

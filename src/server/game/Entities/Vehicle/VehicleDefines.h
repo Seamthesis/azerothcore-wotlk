@@ -122,10 +122,9 @@ struct VehicleAccessory
     uint8 SummonedType;
 };
 
-typedef std::vector<VehicleAccessory> VehicleAccessoryList;
-typedef std::map<uint32, VehicleAccessoryList> VehicleAccessoryContainer;
-typedef std::map<int8, VehicleSeat> SeatMap;
-
+using VehicleAccessoryList = std::vector<VehicleAccessory>;
+using VehicleAccessoryContainer = std::map<uint32, VehicleAccessoryList>;
+using SeatMap = std::map<int8, VehicleSeat>;
 class TransportBase
 {
 protected:

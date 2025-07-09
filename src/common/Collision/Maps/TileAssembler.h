@@ -51,16 +51,15 @@ namespace VMAP
         void moveToBasePos(const G3D::Vector3& pBasePos) { iPos -= pBasePos; }
     };
 
-    typedef std::map<uint32, ModelSpawn> UniqueEntryMap;
-    typedef std::multimap<uint32, uint32> TileMap;
-
+    using UniqueEntryMap = std::map<uint32, ModelSpawn>;
+    using TileMap = std::multimap<uint32, uint32>;
     struct MapSpawns
     {
         UniqueEntryMap UniqueEntries;
         TileMap TileEntries;
     };
 
-    typedef std::map<uint32, MapSpawns*> MapData;
+    using MapData = std::map<uint32, MapSpawns*>;
     //===============================================
 
     struct GroupModel_Raw

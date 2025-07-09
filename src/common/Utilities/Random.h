@@ -71,8 +71,7 @@ inline bool roll_chance_i(int chance)
 class AC_COMMON_API RandomEngine
 {
 public:
-    typedef uint32 result_type;
-
+    using result_type = uint32;
     static constexpr result_type min() { return std::numeric_limits<result_type>::min(); }
     static constexpr result_type max() { return std::numeric_limits<result_type>::max(); }
     result_type operator()() const { return rand32(); }

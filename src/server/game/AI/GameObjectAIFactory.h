@@ -21,8 +21,7 @@
 #include "FactoryHolder.h"
 #include "GameObjectAI.h"
 
-typedef FactoryHolder<GameObjectAI, GameObject> GameObjectAICreator;
-
+using GameObjectAICreator = FactoryHolder<GameObjectAI, GameObject>;
 struct SelectableGameObjectAI : public GameObjectAICreator, public Permissible<GameObject>
 {
     SelectableGameObjectAI(std::string const& name) : GameObjectAICreator(name), Permissible<GameObject>() { }
@@ -44,8 +43,7 @@ struct GameObjectAIFactory : public SelectableGameObjectAI
     }
 };
 
-typedef GameObjectAICreator::FactoryHolderRegistry GameObjectAIRegistry;
-
+using GameObjectAIRegistry = GameObjectAICreator::FactoryHolderRegistry;
 #define sGameObjectAIRegistry GameObjectAIRegistry::instance()
 
 #endif

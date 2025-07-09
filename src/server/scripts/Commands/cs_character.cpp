@@ -95,8 +95,7 @@ public:
         time_t      deleteDate;                         ///< the date at which the character has been deleted
     };
 
-    typedef std::list<DeletedInfo> DeletedInfoList;
-
+    using DeletedInfoList = std::list<DeletedInfo>;
     /**
     * Collects all GUIDs (and related info) from deleted characters which are still in the database.
     *

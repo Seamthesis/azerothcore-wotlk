@@ -51,8 +51,7 @@ namespace MMAP
         }
     };
 
-    typedef std::list<MapTiles> TileList;
-
+    using TileList = std::list<MapTiles>;
     struct Tile
     {
         Tile()  {}

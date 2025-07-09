@@ -25,9 +25,8 @@ class MapReference;
 class MapRefMgr : public RefMgr<Map, Player>
 {
 public:
-    typedef LinkedListHead::Iterator< MapReference > iterator;
-    typedef LinkedListHead::Iterator< MapReference const > const_iterator;
-
+    using iterator = LinkedListHead::Iterator< MapReference >;
+    using const_iterator = LinkedListHead::Iterator< MapReference const >;
     MapReference* getFirst() { return (MapReference*)RefMgr<Map, Player>::getFirst(); }
     [[nodiscard]] MapReference const* getFirst() const { return (MapReference const*)RefMgr<Map, Player>::getFirst(); }
     MapReference* getLast() { return (MapReference*)RefMgr<Map, Player>::getLast(); }

@@ -25,8 +25,7 @@ class UpdateMask
 {
 public:
     /// Type representing how client reads update mask
-    typedef uint32 ClientUpdateMaskType;
-
+    using ClientUpdateMaskType = uint32;
     enum UpdateMaskCount
     {
         CLIENT_UPDATE_MASK_BITS = sizeof(ClientUpdateMaskType) * 8,

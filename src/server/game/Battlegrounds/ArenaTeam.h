@@ -143,8 +143,7 @@ public:
     void Disband(WorldSession* session);
     void Disband();
 
-    typedef std::list<ArenaTeamMember> MemberList;
-
+    using MemberList = std::list<ArenaTeamMember>;
     [[nodiscard]] uint32 GetId() const              { return TeamId; }
     [[nodiscard]] uint32 GetType() const            { return Type; }
     [[nodiscard]] uint8  GetSlot() const            { return GetSlotByType(GetType()); }

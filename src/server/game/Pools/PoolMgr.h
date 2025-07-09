@@ -39,9 +39,8 @@ class Pool                                                  // for Pool of Pool 
 {
 };
 
-typedef std::unordered_set<uint32> ActivePoolObjects;
-typedef std::map<uint32, uint32> ActivePoolPools;
-
+using ActivePoolObjects = std::unordered_set<uint32>;
+using ActivePoolPools = std::map<uint32, uint32>;
 class ActivePoolData
 {
 public:
@@ -67,7 +66,7 @@ private:
 template <class T>
 class PoolGroup
 {
-    typedef std::vector<PoolObject> PoolObjectList;
+    using PoolObjectList = std::vector<PoolObject>;
 public:
     explicit PoolGroup() : poolId(0) { }
     void SetPoolId(uint32 pool_id) { poolId = pool_id; }
@@ -95,10 +94,9 @@ private:
     PoolObjectList EqualChanced;
 };
 
-typedef std::multimap<uint32, uint32> PooledQuestRelation;
-typedef std::pair<PooledQuestRelation::const_iterator, PooledQuestRelation::const_iterator> PooledQuestRelationBounds;
-typedef std::pair<PooledQuestRelation::iterator, PooledQuestRelation::iterator> PooledQuestRelationBoundsNC;
-
+using PooledQuestRelation = std::multimap<uint32, uint32>;
+using PooledQuestRelationBounds = std::pair<PooledQuestRelation::const_iterator, PooledQuestRelation::const_iterator>;
+using PooledQuestRelationBoundsNC = std::pair<PooledQuestRelation::iterator, PooledQuestRelation::iterator>;
 class PoolMgr
 {
 private:
@@ -138,14 +136,13 @@ private:
     template<typename T>
     void SpawnPool(uint32 pool_id, uint32 db_guid_or_pool_id);
 
-    typedef std::unordered_map<uint32, PoolTemplateData>      PoolTemplateDataMap;
-    typedef std::unordered_map<uint32, PoolGroup<Creature>>   PoolGroupCreatureMap;
-    typedef std::unordered_map<uint32, PoolGroup<GameObject>> PoolGroupGameObjectMap;
-    typedef std::unordered_map<uint32, PoolGroup<Pool>>       PoolGroupPoolMap;
-    typedef std::unordered_map<uint32, PoolGroup<Quest>>      PoolGroupQuestMap;
-    typedef std::pair<uint32, uint32>           SearchPair;
-    typedef std::map<uint32, uint32>            SearchMap;
-
+    using PoolTemplateDataMap = std::unordered_map<uint32, PoolTemplateData>;
+    using PoolGroupCreatureMap = std::unordered_map<uint32, PoolGroup<Creature>>;
+    using PoolGroupGameObjectMap = std::unordered_map<uint32, PoolGroup<GameObject>>;
+    using PoolGroupPoolMap = std::unordered_map<uint32, PoolGroup<Pool>>;
+    using PoolGroupQuestMap = std::unordered_map<uint32, PoolGroup<Quest>>;
+    using SearchPair = std::pair<uint32, uint32>;
+    using SearchMap = std::map<uint32, uint32>;
     PoolTemplateDataMap    mPoolTemplate;
     PoolGroupCreatureMap   mPoolCreatureGroups;
     PoolGroupGameObjectMap mPoolGameobjectGroups;

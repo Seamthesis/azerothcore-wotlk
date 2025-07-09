@@ -159,9 +159,8 @@ public:
     void DoForAllMapsWithMapId(uint32 mapId, Worker&& worker);
 
 private:
-    typedef std::unordered_map<uint32, Map*> MapMapType;
-    typedef std::vector<bool> InstanceIds;
-
+    using MapMapType = std::unordered_map<uint32, Map*>;
+    using InstanceIds = std::vector<bool>;
     MapMgr();
     ~MapMgr();
 

@@ -24,8 +24,7 @@
 
 class AuthSocketMgr : public SocketMgr<AuthSession>
 {
-    typedef SocketMgr<AuthSession> BaseSocketMgr;
-
+    using BaseSocketMgr = SocketMgr<AuthSession>;
 public:
     static AuthSocketMgr& Instance()
     {

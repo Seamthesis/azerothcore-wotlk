@@ -38,9 +38,8 @@ class Player;
 class GameObject;
 class Creature;
 
-typedef std::set<GameObject*> DoorSet;
-typedef std::set<Creature*> MinionSet;
-
+using DoorSet = std::set<GameObject*>;
+using MinionSet = std::set<Creature*>;
 enum EncounterFrameType
 {
     ENCOUNTER_FRAME_ENGAGE              = 0,
@@ -85,9 +84,8 @@ struct BossBoundaryEntry
 
 struct BossBoundaryData
 {
-    typedef std::vector<BossBoundaryEntry> StorageType;
-    typedef StorageType::const_iterator const_iterator;
-
+    using StorageType = std::vector<BossBoundaryEntry>;
+    using const_iterator = StorageType::const_iterator;
     BossBoundaryData(std::initializer_list<BossBoundaryEntry> data) : _data(data) { }
     ~BossBoundaryData();
     const_iterator begin() const { return _data.begin(); }
@@ -131,14 +129,12 @@ struct MinionInfo
     BossInfo* bossInfo;
 };
 
-typedef std::multimap<uint32 /*entry*/, DoorInfo> DoorInfoMap;
-typedef std::pair<DoorInfoMap::const_iterator, DoorInfoMap::const_iterator> DoorInfoMapBounds;
-
-typedef std::map<uint32 /*entry*/, MinionInfo> MinionInfoMap;
-typedef std::map<uint32 /*type*/, ObjectGuid /*guid*/> ObjectGuidMap;
-typedef std::map<uint32 /*entry*/, uint32 /*type*/> ObjectInfoMap;
-typedef std::map<ObjectGuid::LowType /*spawnId*/, uint8 /*state*/> ObjectStateMap;
-
+using DoorInfoMap = std::multimap<uint32 /*entry*/, DoorInfo>;
+using DoorInfoMapBounds = std::pair<DoorInfoMap::const_iterator, DoorInfoMap::const_iterator>;
+using MinionInfoMap = std::map<uint32 /*entry*/, MinionInfo>;
+using ObjectGuidMap = std::map<uint32 /*type*/, ObjectGuid /*guid*/>;
+using ObjectInfoMap = std::map<uint32 /*entry*/, uint32 /*type*/>;
+using ObjectStateMap = std::map<ObjectGuid::LowType /*spawnId*/, uint8 /*state*/>;
 class InstanceScript : public ZoneScript
 {
 public:

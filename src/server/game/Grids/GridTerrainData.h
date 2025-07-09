@@ -115,21 +115,18 @@ struct map_liquidHeader
 
 struct LoadedAreaData
 {
-    typedef std::array<uint16, 16 * 16> AreaMapType;
-
+    using AreaMapType = std::array<uint16, 16 * 16>;
     uint16 gridArea;
     std::unique_ptr<AreaMapType> areaMap;
 };
 
 struct LoadedHeightData
 {
-    typedef std::array<G3D::Plane, 8> HeightPlanesType;
-
+    using HeightPlanesType = std::array<G3D::Plane, 8>;
     struct Uint16HeightData
     {
-        typedef std::array<uint16, 129 * 129> V9Type;
-        typedef std::array<uint16, 128 * 128> V8Type;
-
+        using V9Type = std::array<uint16, 129 * 129>;
+        using V8Type = std::array<uint16, 128 * 128>;
         V9Type v9;
         V8Type v8;
         float gridIntHeightMultiplier;
@@ -137,9 +134,8 @@ struct LoadedHeightData
 
     struct Uint8HeightData
     {
-        typedef std::array<uint8, 129 * 129> V9Type;
-        typedef std::array<uint8, 128 * 128> V8Type;
-
+        using V9Type = std::array<uint8, 129 * 129>;
+        using V8Type = std::array<uint8, 128 * 128>;
         V9Type v9;
         V8Type v8;
         float gridIntHeightMultiplier;
@@ -147,9 +143,8 @@ struct LoadedHeightData
 
     struct FloatHeightData
     {
-        typedef std::array<float, 129 * 129> V9Type;
-        typedef std::array<float, 128 * 128> V8Type;
-
+        using V9Type = std::array<float, 129 * 129>;
+        using V8Type = std::array<float, 128 * 128>;
         V9Type v9;
         V8Type v8;
     };
@@ -163,10 +158,9 @@ struct LoadedHeightData
 
 struct LoadedLiquidData
 {
-    typedef std::array<uint16, 16 * 16> LiquidEntryType;
-    typedef std::array<uint8, 16 * 16> LiquidFlagsType;
-    typedef std::vector<float> LiquidMapType;
-
+    using LiquidEntryType = std::array<uint16, 16 * 16>;
+    using LiquidFlagsType = std::array<uint8, 16 * 16>;
+    using LiquidMapType = std::vector<float>;
     uint16 liquidGlobalEntry;
     uint8 liquidGlobalFlags;
     uint8 liquidOffX;
@@ -181,8 +175,7 @@ struct LoadedLiquidData
 
 struct LoadedHoleData
 {
-    typedef std::array<uint16, 16 * 16> HolesType;
-
+    using HolesType = std::array<uint16, 16 * 16>;
     HolesType holes;
 };
 

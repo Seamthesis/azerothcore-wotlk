@@ -95,8 +95,8 @@ namespace Acore
     template<class ArgumentType, class ResultType>
     struct unary_function
     {
-        typedef ArgumentType argument_type;
-        typedef ResultType result_type;
+        using argument_type = ArgumentType;
+        using result_type = ResultType;
     };
 }
 

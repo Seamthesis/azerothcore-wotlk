@@ -172,8 +172,7 @@ enum HalaaStates
     HALAA_H = 16
 };
 
-typedef std::map<uint32, ObjectGuid::LowType> HalaaNPCS;
-
+using HalaaNPCS = std::map<uint32, ObjectGuid::LowType>;
 class Unit;
 class Creature;
 class OutdoorPvPNA;

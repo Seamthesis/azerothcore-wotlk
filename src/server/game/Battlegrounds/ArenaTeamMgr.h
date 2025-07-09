@@ -31,8 +31,7 @@ class ArenaTeamMgr
 public:
     static ArenaTeamMgr* instance();
 
-    typedef std::unordered_map<uint32, ArenaTeam*> ArenaTeamContainer;
-
+    using ArenaTeamContainer = std::unordered_map<uint32, ArenaTeam*>;
     ArenaTeam* GetArenaTeamById(uint32 arenaTeamId) const;
     ArenaTeam* GetArenaTeamByName(std::string const& arenaTeamName) const;
     ArenaTeam* GetArenaTeamByCaptain(ObjectGuid guid) const;

@@ -30,8 +30,7 @@ class Creature;
 class Player;
 class SpellInfo;
 
-typedef std::vector<AreaBoundary const*> CreatureBoundary;
-
+using CreatureBoundary = std::vector<AreaBoundary const*>;
 #define TIME_INTERVAL_LOOK   5000
 #define VISIBILITY_RANGE    10000
 

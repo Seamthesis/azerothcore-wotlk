@@ -25,7 +25,7 @@
 template <class TO, class FROM> class RefMgr : public LinkedListHead
 {
 public:
-    typedef LinkedListHead::Iterator< Reference<TO, FROM>> iterator;
+    using iterator = LinkedListHead::Iterator< Reference<TO, FROM>>;
     RefMgr() = default;
     virtual ~RefMgr() { clearReferences(); }
 

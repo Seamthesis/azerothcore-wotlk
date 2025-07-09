@@ -47,8 +47,7 @@ Appender* CreateAppender(uint8 id, std::string const& name, LogLevel level, Appe
 
 class Log
 {
-typedef std::unordered_map<std::string, Logger> LoggerMap;
-
+using LoggerMap = std::unordered_map<std::string, Logger>;
 private:
     Log();
     ~Log();

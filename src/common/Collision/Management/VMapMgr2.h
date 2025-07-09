@@ -61,9 +61,8 @@ namespace VMAP
         int iRefCount{0};
     };
 
-    typedef std::unordered_map<uint32, StaticMapTree*> InstanceTreeMap;
-    typedef std::unordered_map<std::string, ManagedModel> ModelFileMap;
-
+    using InstanceTreeMap = std::unordered_map<uint32, StaticMapTree*>;
+    using ModelFileMap = std::unordered_map<std::string, ManagedModel>;
     enum DisableTypes
     {
         VMAP_DISABLE_AREAFLAG       = 0x1,

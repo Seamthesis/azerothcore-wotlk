@@ -160,7 +160,7 @@ enum SpellImmuneBlockType
     SPELL_BLOCK_TYPE_POSITIVE   = 1,
 };
 
-typedef std::pair<SpellValueMod, int32> CustomSpellValueMod;
+using CustomSpellValueMod = std::pair<SpellValueMod, int32>;
 class CustomSpellValues : public std::vector<CustomSpellValueMod>
 {
 public:
@@ -179,6 +179,5 @@ struct SpellImmune
     uint32 blockType;
 };
 
-typedef std::vector<SpellImmune> SpellImmuneList;
-
+using SpellImmuneList = std::vector<SpellImmune>;
 #endif // SPELLDEFINES_H

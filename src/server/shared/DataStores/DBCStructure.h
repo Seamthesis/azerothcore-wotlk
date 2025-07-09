@@ -1750,11 +1750,10 @@ struct SpellEntry
     //uint32  SpellDifficultyId;                                    // 233      3.3.0
 };
 
-typedef std::set<std::pair<bool, uint32>> SpellCategorySet;
-typedef std::unordered_map<uint32, SpellCategorySet> SpellCategoryStore;
-typedef std::set<uint32> PetFamilySpellsSet;
-typedef std::map<uint32, PetFamilySpellsSet > PetFamilySpellsStore;
-
+using SpellCategorySet = std::set<std::pair<bool, uint32>>;
+using SpellCategoryStore = std::unordered_map<uint32, SpellCategorySet>;
+using PetFamilySpellsSet = std::set<uint32>;
+using PetFamilySpellsStore = std::map<uint32, PetFamilySpellsSet >;
 struct SpellCastTimesEntry
 {
     uint32    ID;                                           // 0
@@ -2238,15 +2237,11 @@ struct TalentSpellPos
     uint8  rank{0};
 };
 
-typedef std::map<uint32, TalentSpellPos> TalentSpellPosMap;
-
-typedef std::map<uint32, TaxiPathEntry const*> TaxiPathSetForSource;
-typedef std::map<uint32, TaxiPathSetForSource> TaxiPathSetBySource;
-
-typedef std::vector<TaxiPathNodeEntry const*> TaxiPathNodeList;
-typedef std::vector<TaxiPathNodeList> TaxiPathNodesByPath;
-
+using TalentSpellPosMap = std::map<uint32, TalentSpellPos>;
+using TaxiPathSetForSource = std::map<uint32, TaxiPathEntry const*>;
+using TaxiPathSetBySource = std::map<uint32, TaxiPathSetForSource>;
+using TaxiPathNodeList = std::vector<TaxiPathNodeEntry const*>;
+using TaxiPathNodesByPath = std::vector<TaxiPathNodeList>;
 static constexpr std::size_t TaxiMaskSize = 14;
-typedef std::array<uint32, TaxiMaskSize> TaxiMask;
-
+using TaxiMask = std::array<uint32, TaxiMaskSize>;
 #endif

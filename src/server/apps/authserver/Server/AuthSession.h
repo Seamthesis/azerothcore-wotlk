@@ -62,8 +62,7 @@ struct AccountInfo
 
 class AuthSession : public Socket<AuthSession>
 {
-    typedef Socket<AuthSession> AuthSocket;
-
+    using AuthSocket = Socket<AuthSession>;
 public:
     static std::unordered_map<uint8, AuthHandler> InitHandlers();
 

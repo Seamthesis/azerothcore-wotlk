@@ -234,13 +234,12 @@ struct Condition
     uint32 GetMaxAvailableConditionTargets();
 };
 
-typedef std::list<Condition*> ConditionList;
-typedef std::map<uint32, ConditionList> ConditionTypeContainer;
-typedef std::map<ConditionSourceType, ConditionTypeContainer> ConditionContainer;
-typedef std::map<uint32, ConditionTypeContainer> CreatureSpellConditionContainer;
-typedef std::map<uint32, ConditionTypeContainer> NpcVendorConditionContainer;
-typedef std::map<std::pair<int32, uint32 /*SAI source_type*/>, ConditionTypeContainer> SmartEventConditionContainer;
-
+using ConditionList = std::list<Condition*>;
+using ConditionTypeContainer = std::map<uint32, ConditionList>;
+using ConditionContainer = std::map<ConditionSourceType, ConditionTypeContainer>;
+using CreatureSpellConditionContainer = std::map<uint32, ConditionTypeContainer>;
+using NpcVendorConditionContainer = std::map<uint32, ConditionTypeContainer>;
+using SmartEventConditionContainer = std::map<std::pair<int32, uint32 /*SAI source_type*/>, ConditionTypeContainer>;
 typedef std::map<uint32, ConditionList> ConditionReferenceContainer;//only used for references
 
 class ConditionMgr

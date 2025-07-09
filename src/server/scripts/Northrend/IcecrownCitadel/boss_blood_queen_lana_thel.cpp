@@ -582,8 +582,7 @@ public:
 };
 
 // shortened version for clear code
-typedef boss_blood_queen_lana_thel::boss_blood_queen_lana_thelAI LanaThelAI;
-
+using LanaThelAI = boss_blood_queen_lana_thel::boss_blood_queen_lana_thelAI;
 class spell_blood_queen_pact_of_the_darkfallen_dmg_aura : public AuraScript
 {
     PrepareAuraScript(spell_blood_queen_pact_of_the_darkfallen_dmg_aura);

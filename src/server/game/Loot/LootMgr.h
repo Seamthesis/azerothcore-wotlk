@@ -148,8 +148,7 @@ struct LootStoreItem
     // Checks correctness of values
 };
 
-typedef GuidSet AllowedLooterSet;
-
+using AllowedLooterSet = GuidSet;
 struct LootItem
 {
     uint32  itemid;
@@ -195,14 +194,12 @@ struct QuestItem
 
 class LootTemplate;
 
-typedef std::vector<QuestItem> QuestItemList;
-typedef std::vector<LootItem> LootItemList;
-typedef std::map<ObjectGuid, QuestItemList*> QuestItemMap;
-typedef std::list<LootStoreItem*> LootStoreItemList;
-typedef std::unordered_map<uint32, LootTemplate*> LootTemplateMap;
-
-typedef std::set<uint32> LootIdSet;
-
+using QuestItemList = std::vector<QuestItem>;
+using LootItemList = std::vector<LootItem>;
+using QuestItemMap = std::map<ObjectGuid, QuestItemList*>;
+using LootStoreItemList = std::list<LootStoreItem*>;
+using LootTemplateMap = std::unordered_map<uint32, LootTemplate*>;
+using LootIdSet = std::set<uint32>;
 class LootStore
 {
 public:
@@ -244,8 +241,7 @@ private:
 class LootTemplate
 {
     class LootGroup;                                       // A set of loot definitions for items (refs are not allowed inside)
-    typedef std::vector<LootGroup*> LootGroups;
-
+    using LootGroups = std::vector<LootGroup*>;
 public:
     LootTemplate() = default;
     ~LootTemplate();
@@ -292,8 +288,7 @@ public:
 class LootValidatorRefMgr : public RefMgr<Loot, LootValidatorRef>
 {
 public:
-    typedef LinkedListHead::Iterator< LootValidatorRef > iterator;
-
+    using iterator = LinkedListHead::Iterator< LootValidatorRef >;
     LootValidatorRef* getFirst() { return (LootValidatorRef*)RefMgr<Loot, LootValidatorRef>::getFirst(); }
     LootValidatorRef* getLast() { return (LootValidatorRef*)RefMgr<Loot, LootValidatorRef>::getLast(); }
 
@@ -391,7 +386,7 @@ private:
     QuestItemList* FillQuestLoot(Player* player);
     QuestItemList* FillNonQuestNonFFAConditionalLoot(Player* player);
 
-    typedef GuidSet PlayersLootingSet;
+    using PlayersLootingSet = GuidSet;
     PlayersLootingSet PlayersLooting;
     QuestItemMap PlayerQuestItems;
     QuestItemMap PlayerFFAItems;

@@ -284,8 +284,7 @@ struct SpellProcEventEntry
     uint32      cooldown;                                   // hidden cooldown used for some spell proc events, applied to _triggered_spell_
 };
 
-typedef std::unordered_map<uint32, SpellProcEventEntry> SpellProcEventMap;
-
+using SpellProcEventMap = std::unordered_map<uint32, SpellProcEventEntry>;
 struct SpellProcEntry
 {
     uint32       SchoolMask;                                 // if nonzero - bitmask for matching proc condition based on spell's school
@@ -302,8 +301,7 @@ struct SpellProcEntry
     uint32       Charges;                                    // if nonzero - owerwrite procCharges field for given Spell.dbc entry, defines how many times proc can occur before aura remove, 0 - infinite
 };
 
-typedef std::unordered_map<uint32, SpellProcEntry> SpellProcMap;
-
+using SpellProcMap = std::unordered_map<uint32, SpellProcEntry>;
 enum EnchantProcAttributes
 {
     ENCHANT_PROC_ATTR_EXCLUSIVE     = 0x1, // Only one instance of that effect can be active
@@ -318,8 +316,7 @@ struct SpellEnchantProcEntry
     uint32      attributeMask;
 };
 
-typedef std::unordered_map<uint32, SpellEnchantProcEntry> SpellEnchantProcEventMap;
-
+using SpellEnchantProcEventMap = std::unordered_map<uint32, SpellEnchantProcEntry>;
 struct SpellBonusEntry
 {
     float  direct_damage;
@@ -328,8 +325,7 @@ struct SpellBonusEntry
     float  ap_dot_bonus;
 };
 
-typedef std::unordered_map<uint32, SpellBonusEntry>     SpellBonusMap;
-
+using SpellBonusMap = std::unordered_map<uint32, SpellBonusEntry>;
 enum SpellGroupSpecialFlags
 {
     SPELL_GROUP_SPECIAL_FLAG_NONE                       = 0x000,
@@ -378,9 +374,8 @@ struct SpellStackInfo
     SpellGroupSpecialFlags specialFlags;
 };
 //             spell_id, group_id
-typedef std::map<uint32, SpellStackInfo> SpellGroupMap;
-typedef std::map<uint32, SpellGroupStackFlags> SpellGroupStackMap;
-
+using SpellGroupMap = std::map<uint32, SpellStackInfo>;
+using SpellGroupStackMap = std::map<uint32, SpellGroupStackFlags>;
 struct SpellThreatEntry
 {
     int32       flatMod;                                    // flat threat-value for this Spell  - default: 0
@@ -388,9 +383,8 @@ struct SpellThreatEntry
     float       apPctMod;                                   // Pct of AP that is added as Threat - default: 0.0f
 };
 
-typedef std::unordered_map<uint32, SpellThreatEntry> SpellThreatMap;
-typedef std::map<uint32, float> SpellMixologyMap;
-
+using SpellThreatMap = std::unordered_map<uint32, SpellThreatEntry>;
+using SpellMixologyMap = std::map<uint32, float>;
 // coordinates for spells (accessed using SpellMgr functions)
 struct SpellTargetPosition
 {
@@ -401,8 +395,7 @@ struct SpellTargetPosition
     float  target_Orientation;
 };
 
-typedef std::map<std::pair<uint32 /*spell_id*/, SpellEffIndex /*effIndex*/>, SpellTargetPosition> SpellTargetPositionMap;
-
+using SpellTargetPositionMap = std::map<std::pair<uint32 /*spell_id*/, SpellEffIndex /*effIndex*/>, SpellTargetPosition>;
 // Enum with EffectRadiusIndex and their actual radius
 enum EffectRadiusIndex
 {
@@ -469,8 +462,7 @@ enum EffectRadiusIndex
 class PetAura
 {
 private:
-    typedef std::unordered_map<uint32, uint32> PetAuraMap;
-
+    using PetAuraMap = std::unordered_map<uint32, uint32>;
 public:
     PetAura()
     {
@@ -514,8 +506,7 @@ private:
     bool removeOnChangePet{false};
     int32 damage{0};
 };
-typedef std::map<uint32, PetAura> SpellPetAuraMap;
-
+using SpellPetAuraMap = std::map<uint32, PetAura>;
 enum ICCBuff
 {
     ICC_AREA              = 4812,
@@ -540,15 +531,14 @@ struct SpellArea
     bool IsFitToRequirements(Player const* player, uint32 newZone, uint32 newArea) const;
 };
 
-typedef std::multimap<uint32, SpellArea> SpellAreaMap;
-typedef std::multimap<uint32, SpellArea const*> SpellAreaForQuestMap;
-typedef std::multimap<uint32, SpellArea const*> SpellAreaForAuraMap;
-typedef std::multimap<uint32, SpellArea const*> SpellAreaForAreaMap;
-typedef std::pair<SpellAreaMap::const_iterator, SpellAreaMap::const_iterator> SpellAreaMapBounds;
-typedef std::pair<SpellAreaForQuestMap::const_iterator, SpellAreaForQuestMap::const_iterator> SpellAreaForQuestMapBounds;
-typedef std::pair<SpellAreaForAuraMap::const_iterator, SpellAreaForAuraMap::const_iterator>  SpellAreaForAuraMapBounds;
-typedef std::pair<SpellAreaForAreaMap::const_iterator, SpellAreaForAreaMap::const_iterator>  SpellAreaForAreaMapBounds;
-
+using SpellAreaMap = std::multimap<uint32, SpellArea>;
+using SpellAreaForQuestMap = std::multimap<uint32, SpellArea const*>;
+using SpellAreaForAuraMap = std::multimap<uint32, SpellArea const*>;
+using SpellAreaForAreaMap = std::multimap<uint32, SpellArea const*>;
+using SpellAreaMapBounds = std::pair<SpellAreaMap::const_iterator, SpellAreaMap::const_iterator>;
+using SpellAreaForQuestMapBounds = std::pair<SpellAreaForQuestMap::const_iterator, SpellAreaForQuestMap::const_iterator>;
+using SpellAreaForAuraMapBounds = std::pair<SpellAreaForAuraMap::const_iterator, SpellAreaForAuraMap::const_iterator>;
+using SpellAreaForAreaMapBounds = std::pair<SpellAreaForAreaMap::const_iterator, SpellAreaForAreaMap::const_iterator>;
 // Spell rank chain  (accessed using SpellMgr functions)
 struct SpellChainNode
 {
@@ -559,16 +549,13 @@ struct SpellChainNode
     uint8  rank;
 };
 
-typedef std::unordered_map<uint32, SpellChainNode> SpellChainMap;
-
+using SpellChainMap = std::unordered_map<uint32, SpellChainNode>;
 //                   spell_id  req_spell
-typedef std::multimap<uint32, uint32> SpellRequiredMap;
-typedef std::pair<SpellRequiredMap::const_iterator, SpellRequiredMap::const_iterator> SpellRequiredMapBounds;
-
+using SpellRequiredMap = std::multimap<uint32, uint32>;
+using SpellRequiredMapBounds = std::pair<SpellRequiredMap::const_iterator, SpellRequiredMap::const_iterator>;
 //                   req_spell spell_id
-typedef std::multimap<uint32, uint32> SpellsRequiringSpellMap;
-typedef std::pair<SpellsRequiringSpellMap::const_iterator, SpellsRequiringSpellMap::const_iterator> SpellsRequiringSpellMapBounds;
-
+using SpellsRequiringSpellMap = std::multimap<uint32, uint32>;
+using SpellsRequiringSpellMapBounds = std::pair<SpellsRequiringSpellMap::const_iterator, SpellsRequiringSpellMap::const_iterator>;
 // Spell learning properties (accessed using SpellMgr functions)
 struct SpellLearnSkillNode
 {
@@ -578,31 +565,23 @@ struct SpellLearnSkillNode
     uint16 maxvalue;                                        // 0  - max skill value for player level
 };
 
-typedef std::unordered_map<uint32, SpellLearnSkillNode> SpellLearnSkillMap;
-
-typedef std::multimap<uint32, SkillLineAbilityEntry const*> SkillLineAbilityMap;
-typedef std::pair<SkillLineAbilityMap::const_iterator, SkillLineAbilityMap::const_iterator> SkillLineAbilityMapBounds;
-
-typedef std::multimap<uint32, uint32> PetLevelupSpellSet;
-typedef std::map<uint32, PetLevelupSpellSet> PetLevelupSpellMap;
-
-typedef std::map<uint32, uint32> SpellDifficultySearcherMap;
-
+using SpellLearnSkillMap = std::unordered_map<uint32, SpellLearnSkillNode>;
+using SkillLineAbilityMap = std::multimap<uint32, SkillLineAbilityEntry const*>;
+using SkillLineAbilityMapBounds = std::pair<SkillLineAbilityMap::const_iterator, SkillLineAbilityMap::const_iterator>;
+using PetLevelupSpellSet = std::multimap<uint32, uint32>;
+using PetLevelupSpellMap = std::map<uint32, PetLevelupSpellSet>;
+using SpellDifficultySearcherMap = std::map<uint32, uint32>;
 struct PetDefaultSpellsEntry
 {
     uint32 spellid[MAX_CREATURE_SPELL_DATA_SLOT];
 };
 
 // < 0 for petspelldata id, > 0 for creature_id
-typedef std::map<int32, PetDefaultSpellsEntry> PetDefaultSpellsMap;
-
-typedef std::vector<uint32> SpellCustomAttribute;
-typedef std::vector<bool> EnchantCustomAttribute;
-
-typedef std::vector<SpellInfo*> SpellInfoMap;
-
-typedef std::map<int32, std::vector<int32> > SpellLinkedMap;
-
+using PetDefaultSpellsMap = std::map<int32, PetDefaultSpellsEntry>;
+using SpellCustomAttribute = std::vector<uint32>;
+using EnchantCustomAttribute = std::vector<bool>;
+using SpellInfoMap = std::vector<SpellInfo*>;
+using SpellLinkedMap = std::map<int32, std::vector<int32> >;
 struct SpellCooldownOverride
 {
     uint32 RecoveryTime;
@@ -611,8 +590,7 @@ struct SpellCooldownOverride
     uint32 StartRecoveryCategory;
 };
 
-typedef std::map<uint32, SpellCooldownOverride> SpellCooldownOverrideMap;
-
+using SpellCooldownOverrideMap = std::map<uint32, SpellCooldownOverride>;
 bool IsPrimaryProfessionSkill(uint32 skill);
 
 inline bool IsProfessionSkill(uint32 skill)
@@ -634,8 +612,7 @@ DiminishingLevels GetDiminishingReturnsMaxLevel(DiminishingGroup group);
 int32 GetDiminishingReturnsLimitDuration(DiminishingGroup group, SpellInfo const* spellproto);
 bool IsDiminishingReturnsGroupDurationLimited(DiminishingGroup group);
 
-typedef std::set<uint32> TalentAdditionalSet;
-
+using TalentAdditionalSet = std::set<uint32>;
 class SpellMgr
 {
     // Constructors

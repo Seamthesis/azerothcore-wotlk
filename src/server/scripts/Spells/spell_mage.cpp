@@ -1031,8 +1031,7 @@ private:
     Spell const* _spell = nullptr;
 };
 
-typedef spell_mage_fingers_of_frost_proc_aura spell_mage_fingers_of_frost_proc_aura_script;
-
+using spell_mage_fingers_of_frost_proc_aura_script = spell_mage_fingers_of_frost_proc_aura;
 class spell_mage_fingers_of_frost_proc : public AuraScript
 {
     PrepareAuraScript(spell_mage_fingers_of_frost_proc);

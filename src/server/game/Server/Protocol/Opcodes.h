@@ -1347,9 +1347,8 @@ enum OpcodeMisc : uint16
     NULL_OPCODE = 0x0000
 };
 
-typedef Opcodes OpcodeClient;
-typedef Opcodes OpcodeServer;
-
+using OpcodeClient = Opcodes;
+using OpcodeServer = Opcodes;
 /// Player state
 enum SessionStatus
 {

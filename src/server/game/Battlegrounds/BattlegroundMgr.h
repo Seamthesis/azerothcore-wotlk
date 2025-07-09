@@ -24,9 +24,9 @@
 #include "DBCEnums.h"
 #include <unordered_map>
 
-typedef std::map<uint32, Battleground*> BattlegroundContainer;
-typedef std::set<uint32> BattlegroundClientIdsContainer;
-typedef std::unordered_map<uint32, BattlegroundTypeId> BattleMastersMap;
+using BattlegroundContainer = std::map<uint32, Battleground*>;
+using BattlegroundClientIdsContainer = std::set<uint32>;
+using BattleMastersMap = std::unordered_map<uint32, BattlegroundTypeId>;
 typedef Battleground* (*bgRef)(Battleground*);
 
 typedef void(*bgMapRef)(WorldPacket*, Battleground::BattlegroundScoreMap::const_iterator);
@@ -145,7 +145,7 @@ private:
     uint32 CreateClientVisibleInstanceId(BattlegroundTypeId bgTypeId, BattlegroundBracketId bracket_id);
     BattlegroundTypeId GetRandomBG(BattlegroundTypeId id, uint32 minLevel);
 
-    typedef std::map<BattlegroundTypeId, BattlegroundData> BattlegroundDataContainer;
+    using BattlegroundDataContainer = std::map<BattlegroundTypeId, BattlegroundData>;
     BattlegroundDataContainer bgDataStore;
 
     BattlegroundQueue m_BattlegroundQueues[MAX_BATTLEGROUND_QUEUE_TYPES];
@@ -176,10 +176,9 @@ private:
         return nullptr;
     }
 
-    typedef std::map<BattlegroundTypeId, uint8 /*weight*/> BattlegroundSelectionWeightMap;
-
-    typedef std::map<BattlegroundTypeId, BattlegroundTemplate> BattlegroundTemplateMap;
-    typedef std::map<uint32 /*mapId*/, BattlegroundTemplate*> BattlegroundMapTemplateContainer;
+    using BattlegroundSelectionWeightMap = std::map<BattlegroundTypeId, uint8 /*weight*/>;
+    using BattlegroundTemplateMap = std::map<BattlegroundTypeId, BattlegroundTemplate>;
+    using BattlegroundMapTemplateContainer = std::map<uint32 /*mapId*/, BattlegroundTemplate*>;
     BattlegroundTemplateMap _battlegroundTemplates;
     BattlegroundMapTemplateContainer _battlegroundMapTemplates;
 };

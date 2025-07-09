@@ -134,8 +134,7 @@ public:
             delete itr.second;
     }
 
-    typedef std::map<uint32, AuctionEntry*> AuctionEntryMap;
-
+    using AuctionEntryMap = std::map<uint32, AuctionEntry*>;
     [[nodiscard]] uint32 Getcount() const { return _auctionsMap.size(); }
 
     AuctionEntryMap::iterator GetAuctionsBegin() { return _auctionsMap.begin(); }
@@ -168,8 +167,7 @@ private:
     ~AuctionHouseMgr();
 
 public:
-    typedef std::unordered_map<ObjectGuid, Item*> ItemMap;
-
+    using ItemMap = std::unordered_map<ObjectGuid, Item*>;
     static AuctionHouseMgr* instance();
 
     AuctionHouseObject* GetAuctionsMap(uint32 factionTemplateId);

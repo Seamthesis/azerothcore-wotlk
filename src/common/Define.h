@@ -99,13 +99,12 @@
 
 #define STRING_VIEW_FMT_ARG(str) static_cast<int>((str).length()), (str).data()
 
-typedef std::int64_t int64;
-typedef std::int32_t int32;
-typedef std::int16_t int16;
-typedef std::int8_t int8;
-typedef std::uint64_t uint64;
-typedef std::uint32_t uint32;
-typedef std::uint16_t uint16;
-typedef std::uint8_t uint8;
-
+using int64 = std::int64_t;
+using int32 = std::int32_t;
+using int16 = std::int16_t;
+using int8 = std::int8_t;
+using uint64 = std::uint64_t;
+using uint32 = std::uint32_t;
+using uint16 = std::uint16_t;
+using uint8 = std::uint8_t;
 #endif //ACORE_DEFINE_H

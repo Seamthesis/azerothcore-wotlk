@@ -117,8 +117,7 @@ private:
 
 class MailDraft
 {
-    typedef std::map<ObjectGuid, Item*> MailItemMap;
-
+    using MailItemMap = std::map<ObjectGuid, Item*>;
 public:                                                 // Constructors
     explicit MailDraft(uint16 mailTemplateId, bool need_items = true)
         : m_mailTemplateId(mailTemplateId), m_mailTemplateItemsNeed(need_items), m_money(0), m_COD(0)
@@ -161,8 +160,7 @@ struct MailItemInfo
     ObjectGuid::LowType item_guid;
     uint32 item_template;
 };
-typedef std::vector<MailItemInfo> MailItemInfoVec;
-
+using MailItemInfoVec = std::vector<MailItemInfo>;
 struct Mail
 {
     uint32 messageID;

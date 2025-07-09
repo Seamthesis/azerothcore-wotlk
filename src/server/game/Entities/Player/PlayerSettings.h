@@ -45,7 +45,6 @@ struct PlayerSetting
     void RemoveFlag(uint32 flag) { value = value &~ flag; }
 };
 
-typedef std::vector<PlayerSetting> PlayerSettingVector;
-typedef std::map<std::string, PlayerSettingVector> PlayerSettingMap;
-
+using PlayerSettingVector = std::vector<PlayerSetting>;
+using PlayerSettingMap = std::map<std::string, PlayerSettingVector>;
 #endif

@@ -69,8 +69,7 @@ struct AuthSession;
 
 class AC_GAME_API WorldSocket : public Socket<WorldSocket>
 {
-    typedef Socket<WorldSocket> BaseSocket;
-
+    using BaseSocket = Socket<WorldSocket>;
 public:
     WorldSocket(tcp::socket&& socket);
     ~WorldSocket();

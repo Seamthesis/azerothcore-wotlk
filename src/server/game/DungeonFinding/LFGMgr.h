@@ -262,19 +262,18 @@ namespace lfg
     struct LfgProposalPlayer;
     struct LfgPlayerBoot;
 
-    typedef std::map<uint8, LFGQueue> LfgQueueContainer;
-    typedef std::multimap<uint32, LfgReward const*> LfgRewardContainer;
-    typedef std::pair<LfgRewardContainer::const_iterator, LfgRewardContainer::const_iterator> LfgRewardContainerBounds;
-    typedef std::map<uint8, LfgDungeonSet> LfgCachedDungeonContainer;
-    typedef std::map<ObjectGuid, LfgAnswer> LfgAnswerContainer;
-    typedef std::map<ObjectGuid, LfgRoleCheck> LfgRoleCheckContainer;
-    typedef std::map<uint32, LfgProposal> LfgProposalContainer;
-    typedef std::map<ObjectGuid, LfgProposalPlayer> LfgProposalPlayerContainer;
-    typedef std::map<ObjectGuid, LfgPlayerBoot> LfgPlayerBootContainer;
-    typedef std::map<ObjectGuid, LfgGroupData> LfgGroupDataContainer;
-    typedef std::map<ObjectGuid, LfgPlayerData> LfgPlayerDataContainer;
-    typedef std::unordered_map<uint32, LFGDungeonData> LFGDungeonContainer;
-
+    using LfgQueueContainer = std::map<uint8, LFGQueue>;
+    using LfgRewardContainer = std::multimap<uint32, LfgReward const*>;
+    using LfgRewardContainerBounds = std::pair<LfgRewardContainer::const_iterator, LfgRewardContainer::const_iterator>;
+    using LfgCachedDungeonContainer = std::map<uint8, LfgDungeonSet>;
+    using LfgAnswerContainer = std::map<ObjectGuid, LfgAnswer>;
+    using LfgRoleCheckContainer = std::map<ObjectGuid, LfgRoleCheck>;
+    using LfgProposalContainer = std::map<uint32, LfgProposal>;
+    using LfgProposalPlayerContainer = std::map<ObjectGuid, LfgProposalPlayer>;
+    using LfgPlayerBootContainer = std::map<ObjectGuid, LfgPlayerBoot>;
+    using LfgGroupDataContainer = std::map<ObjectGuid, LfgGroupData>;
+    using LfgPlayerDataContainer = std::map<ObjectGuid, LfgPlayerData>;
+    using LFGDungeonContainer = std::unordered_map<uint32, LFGDungeonData>;
     // Data needed by SMSG_LFG_JOIN_RESULT
     struct LfgJoinResultData
     {
@@ -423,15 +422,15 @@ namespace lfg
         ~LFGMgr();
 
         // pussywizard: RAIDBROWSER
-        typedef std::unordered_map<ObjectGuid /*playerGuid*/, RBEntryInfo> RBEntryInfoMap;
-        typedef std::unordered_map<uint32 /*dungeonId*/, RBEntryInfoMap> RBStoreMap;
+        using RBEntryInfoMap = std::unordered_map<ObjectGuid /*playerGuid*/, RBEntryInfo>;
+        using RBStoreMap = std::unordered_map<uint32 /*dungeonId*/, RBEntryInfoMap>;
         RBStoreMap RaidBrowserStore[2]; // for 2 factions
-        typedef std::unordered_map<ObjectGuid /*playerGuid*/, uint32 /*dungeonId*/> RBSearchersMap;
+        using RBSearchersMap = std::unordered_map<ObjectGuid /*playerGuid*/, uint32 /*dungeonId*/>;
         RBSearchersMap RBSearchersStore[2]; // for 2 factions
-        typedef std::unordered_map<uint32 /*dungeonId*/, WorldPacket> RBCacheMap;
+        using RBCacheMap = std::unordered_map<uint32 /*dungeonId*/, WorldPacket>;
         RBCacheMap RBCacheStore[2]; // for 2 factions
-        typedef std::unordered_map<ObjectGuid /*guid*/, RBInternalInfo> RBInternalInfoMap;
-        typedef std::unordered_map<uint32 /*dungeonId*/, RBInternalInfoMap> RBInternalInfoMapMap;
+        using RBInternalInfoMap = std::unordered_map<ObjectGuid /*guid*/, RBInternalInfo>;
+        using RBInternalInfoMapMap = std::unordered_map<uint32 /*dungeonId*/, RBInternalInfoMap>;
         RBInternalInfoMapMap RBInternalInfoStorePrev[2]; // for 2 factions
         RBInternalInfoMapMap RBInternalInfoStoreCurr[2]; // for 2 factions
         typedef std::set<uint32 /*dungeonId*/> RBUsedDungeonsSet; // needs to be ordered

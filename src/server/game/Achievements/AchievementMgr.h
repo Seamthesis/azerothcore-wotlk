@@ -26,12 +26,10 @@
 #include <map>
 #include <string>
 
-typedef std::list<AchievementCriteriaEntry const*> AchievementCriteriaEntryList;
-typedef std::list<AchievementEntry const*>         AchievementEntryList;
-
-typedef std::unordered_map<uint32, AchievementCriteriaEntryList> AchievementCriteriaListByAchievement;
-typedef std::map<uint32, AchievementEntryList>         AchievementListByReferencedId;
-
+using AchievementCriteriaEntryList = std::list<AchievementCriteriaEntry const*>;
+using AchievementEntryList = std::list<AchievementEntry const*>;
+using AchievementCriteriaListByAchievement = std::unordered_map<uint32, AchievementCriteriaEntryList>;
+using AchievementListByReferencedId = std::map<uint32, AchievementEntryList>;
 enum AchievementOfflinePlayerUpdateType
 {
     ACHIEVEMENT_OFFLINE_PLAYER_UPDATE_TYPE_COMPLETE_ACHIEVEMENT = 1,
@@ -245,7 +243,7 @@ struct AchievementCriteriaData
 struct AchievementCriteriaDataSet
 {
     AchievementCriteriaDataSet()  = default;
-    typedef std::vector<AchievementCriteriaData> Storage;
+    using Storage = std::vector<AchievementCriteriaData>;
     void Add(AchievementCriteriaData const& data) { _storage.push_back(data); }
     bool Meets(Player const* source, Unit const* target, uint32 miscvalue = 0) const;
     void SetCriteriaId(uint32 id) {_criteria_id = id;}
@@ -254,8 +252,7 @@ private:
     Storage _storage;
 };
 
-typedef std::map<uint32, AchievementCriteriaDataSet> AchievementCriteriaDataMap;
-
+using AchievementCriteriaDataMap = std::map<uint32, AchievementCriteriaDataSet>;
 struct AchievementReward
 {
     uint32 titleId[2];
@@ -266,25 +263,22 @@ struct AchievementReward
     uint32 mailTemplate;
 };
 
-typedef std::map<uint32, AchievementReward> AchievementRewards;
-
+using AchievementRewards = std::map<uint32, AchievementReward>;
 struct AchievementRewardLocale
 {
     std::vector<std::string> Subject;
     std::vector<std::string> Text;
 };
 
-typedef std::map<uint32, AchievementRewardLocale> AchievementRewardLocales;
-
+using AchievementRewardLocales = std::map<uint32, AchievementRewardLocale>;
 struct CompletedAchievementData
 {
     time_t date;
     bool changed;
 };
 
-typedef std::unordered_map<uint32, CriteriaProgress> CriteriaProgressMap;
-typedef std::unordered_map<uint32, CompletedAchievementData> CompletedAchievementMap;
-
+using CriteriaProgressMap = std::unordered_map<uint32, CriteriaProgress>;
+using CompletedAchievementMap = std::unordered_map<uint32, CompletedAchievementData>;
 class Unit;
 class Player;
 class WorldPacket;
@@ -336,7 +330,7 @@ private:
     Player* _player;
     CriteriaProgressMap _criteriaProgress;
     CompletedAchievementMap _completedAchievements;
-    typedef std::map<uint32, uint32> TimedAchievementMap;
+    using TimedAchievementMap = std::map<uint32, uint32>;
     TimedAchievementMap _timedAchievements;      // Criteria id/time left in MS
 
     // Offline updates cannot be processed while players are loading,
@@ -437,7 +431,7 @@ private:
     // store achievements by referenced achievement id to speed up lookup
     AchievementListByReferencedId _achievementListByReferencedId;
 
-    typedef std::unordered_map<uint32 /*achievementId*/, SystemTimePoint /*completionTime*/> AllCompletedAchievements;
+    using AllCompletedAchievements = std::unordered_map<uint32 /*achievementId*/, SystemTimePoint /*completionTime*/>;
     AllCompletedAchievements _allCompletedAchievements;
 
     AchievementRewards _achievementRewards;

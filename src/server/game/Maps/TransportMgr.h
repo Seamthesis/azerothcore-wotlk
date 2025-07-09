@@ -31,13 +31,12 @@ class StaticTransport;
 class MotionTransport;
 class Map;
 
-typedef Movement::Spline<double>                 TransportSpline;
-typedef std::vector<KeyFrame>                    KeyFrameVec;
-typedef std::unordered_map<uint32, TransportTemplate> TransportTemplates;
-typedef std::set<MotionTransport*>               TransportSet;
-typedef std::unordered_map<uint32, TransportSet>      TransportMap;
-typedef std::unordered_map<uint32, std::set<uint32> > TransportInstanceMap;
-
+using TransportSpline = Movement::Spline<double>;
+using KeyFrameVec = std::vector<KeyFrame>;
+using TransportTemplates = std::unordered_map<uint32, TransportTemplate>;
+using TransportSet = std::set<MotionTransport*>;
+using TransportMap = std::unordered_map<uint32, TransportSet>;
+using TransportInstanceMap = std::unordered_map<uint32, std::set<uint32> >;
 struct KeyFrame
 {
     explicit KeyFrame(TaxiPathNodeEntry const* node) : Index(0), Node(node), InitialOrientation(0.0f),
@@ -81,9 +80,8 @@ struct TransportTemplate
     uint32 entry;
 };
 
-typedef std::map<uint32, TransportAnimationEntry const*> TransportPathContainer;
-typedef std::map<uint32, TransportRotationEntry const*> TransportPathRotationContainer;
-
+using TransportPathContainer = std::map<uint32, TransportAnimationEntry const*>;
+using TransportPathRotationContainer = std::map<uint32, TransportRotationEntry const*>;
 struct TransportAnimation
 {
     TransportAnimation() : TotalTime(0) { }
@@ -96,8 +94,7 @@ struct TransportAnimation
     void GetAnimRotation(uint32 time, G3D::Quat& curr, G3D::Quat& next, float& percRot) const;
 };
 
-typedef std::map<uint32, TransportAnimation> TransportAnimationContainer;
-
+using TransportAnimationContainer = std::map<uint32, TransportAnimation>;
 class TransportMgr
 {
     friend void LoadDBCStores(std::string const&);

@@ -34,8 +34,7 @@ public:
     static int32 Permissible(Creature const* creature);
 };
 
-typedef std::vector<uint32> SpellVct;
-
+using SpellVct = std::vector<uint32>;
 class CombatAI : public CreatureAI
 {
 public:

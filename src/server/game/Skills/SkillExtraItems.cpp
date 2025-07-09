@@ -44,8 +44,7 @@ struct SkillPerfectItemEntry
 };
 
 // map to store perfection info. key = spellId of the creation spell, value is the perfectitementry as specified above
-typedef std::map<uint32, SkillPerfectItemEntry> SkillPerfectItemMap;
-
+using SkillPerfectItemMap = std::map<uint32, SkillPerfectItemEntry>;
 SkillPerfectItemMap SkillPerfectItemStore;
 
 // loads the perfection proc info from DB
@@ -130,8 +129,7 @@ struct SkillExtraItemEntry
 };
 
 // map to store the extra item creation info, the key is the spellId of the creation spell, the mapped value is the assigned SkillExtraItemEntry
-typedef std::map<uint32, SkillExtraItemEntry> SkillExtraItemMap;
-
+using SkillExtraItemMap = std::map<uint32, SkillExtraItemEntry>;
 SkillExtraItemMap SkillExtraItemStore;
 
 // loads the extra item creation info from DB

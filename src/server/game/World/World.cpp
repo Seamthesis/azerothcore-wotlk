@@ -1385,7 +1385,7 @@ namespace Acore
     class WorldWorldTextBuilder
     {
     public:
-        typedef std::vector<WorldPacket*> WorldPacketList;
+        using WorldPacketList = std::vector<WorldPacket*>;
         explicit WorldWorldTextBuilder(uint32 textId, va_list* args = nullptr) : i_textId(textId), i_args(args) {}
         void operator()(WorldPacketList& data_list, LocaleConstant loc_idx)
         {

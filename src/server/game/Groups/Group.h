@@ -153,7 +153,7 @@ public:
     int32  itemRandomPropId;
     uint32 itemRandomSuffix;
     uint8 itemCount;
-    typedef std::map<ObjectGuid, RollVote> PlayerVote;
+    using PlayerVote = std::map<ObjectGuid, RollVote>;
     PlayerVote playerVote;                              //vote position correspond with player position (in group)
     uint8 totalPlayersRolling;
     uint8 totalNeed;
@@ -176,15 +176,12 @@ public:
         uint8       flags;
         uint8       roles;
     };
-    typedef std::list<MemberSlot> MemberSlotList;
-    typedef MemberSlotList::const_iterator member_citerator;
-
+    using MemberSlotList = std::list<MemberSlot>;
+    using member_citerator = MemberSlotList::const_iterator;
 protected:
-    typedef MemberSlotList::iterator member_witerator;
-    typedef std::set<Player*> InvitesList;
-
-    typedef std::vector<Roll*> Rolls;
-
+    using member_witerator = MemberSlotList::iterator;
+    using InvitesList = std::set<Player*>;
+    using Rolls = std::vector<Roll*>;
 public:
     Group();
     ~Group();

@@ -130,8 +130,7 @@ enum LoginDatabaseStatements : uint32
 class AC_DATABASE_API LoginDatabaseConnection : public MySQLConnection
 {
 public:
-    typedef LoginDatabaseStatements Statements;
-
+    using Statements = LoginDatabaseStatements;
     //- Constructors for sync and async connections
     LoginDatabaseConnection(MySQLConnectionInfo& connInfo);
     LoginDatabaseConnection(ProducerConsumerQueue<SQLOperation*>* q, MySQLConnectionInfo& connInfo);

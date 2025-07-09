@@ -62,10 +62,9 @@ namespace lfg
         uint32 number{0};                                      // Number of people used to get that wait time
     };
 
-    typedef std::map<uint32, LfgWaitTime> LfgWaitTimesContainer;
-    typedef std::map<ObjectGuid, LfgQueueData> LfgQueueDataContainer;
-    typedef std::list<Lfg5Guids> LfgCompatibleContainer;
-
+    using LfgWaitTimesContainer = std::map<uint32, LfgWaitTime>;
+    using LfgQueueDataContainer = std::map<ObjectGuid, LfgQueueData>;
+    using LfgCompatibleContainer = std::list<Lfg5Guids>;
     /**
         Stores all data related to queue
     */

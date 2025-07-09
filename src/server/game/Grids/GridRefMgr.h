@@ -27,8 +27,7 @@ template<class OBJECT>
 class GridRefMgr : public RefMgr<GridRefMgr<OBJECT>, OBJECT>
 {
 public:
-    typedef LinkedListHead::Iterator< GridReference<OBJECT> > iterator;
-
+    using iterator = LinkedListHead::Iterator< GridReference<OBJECT> >;
     GridReference<OBJECT>* getFirst() { return (GridReference<OBJECT>*)RefMgr<GridRefMgr<OBJECT>, OBJECT>::getFirst(); }
     GridReference<OBJECT>* getLast() { return (GridReference<OBJECT>*)RefMgr<GridRefMgr<OBJECT>, OBJECT>::getLast(); }
 

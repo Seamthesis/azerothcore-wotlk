@@ -28,8 +28,7 @@ template<class T, class Key = std::string>
 class ObjectRegistry final
 {
 public:
-    typedef std::map<Key, std::unique_ptr<T>> RegistryMapType;
-
+    using RegistryMapType = std::map<Key, std::unique_ptr<T>>;
     /// Returns a registry item
     T const* GetRegistryItem(Key const& key) const
     {

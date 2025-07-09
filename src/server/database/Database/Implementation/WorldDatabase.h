@@ -124,8 +124,7 @@ enum WorldDatabaseStatements : uint32
 class AC_DATABASE_API WorldDatabaseConnection : public MySQLConnection
 {
 public:
-    typedef WorldDatabaseStatements Statements;
-
+    using Statements = WorldDatabaseStatements;
     //- Constructors for sync and async connections
     WorldDatabaseConnection(MySQLConnectionInfo& connInfo);
     WorldDatabaseConnection(ProducerConsumerQueue<SQLOperation*>* q, MySQLConnectionInfo& connInfo);

@@ -419,7 +419,7 @@ struct StringCompareLessI_T
 template <typename T>
 class HookList
 {
-    typedef typename std::list<T>::iterator ListIterator;
+    using ListIterator = typename std::list<T>::iterator;
 private:
     typename std::list<T> m_list;
 public:

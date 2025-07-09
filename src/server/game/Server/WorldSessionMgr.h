@@ -53,7 +53,7 @@ public:
     int32 GetQueuePos(WorldSession* session);
     bool HasRecentlyDisconnected(WorldSession* session);
 
-    typedef std::unordered_map<uint32, WorldSession*> SessionMap;
+    using SessionMap = std::unordered_map<uint32, WorldSession*>;
     SessionMap const& GetAllSessions() const { return _sessions; }
 
     /// Get the number of current active sessions
@@ -94,10 +94,10 @@ private:
     SessionMap _sessions;
     SessionMap _offlineSessions;
 
-    typedef std::unordered_map<uint32, time_t> DisconnectMap;
+    using DisconnectMap = std::unordered_map<uint32, time_t>;
     DisconnectMap _disconnects;
 
-    typedef std::list<WorldSession*> Queue;
+    using Queue = std::list<WorldSession*>;
     Queue _queuedPlayer;
 
     uint32 _playerLimit;

@@ -320,9 +320,9 @@ public:
     [[nodiscard]] uint32 GetRewChoiceItemsCount() const { return _rewChoiceItemsCount; }
     [[nodiscard]] uint32 GetRewItemsCount() const { return _rewItemsCount; }
 
-    typedef std::vector<int32> PrevQuests;
+    using PrevQuests = std::vector<int32>;
     PrevQuests prevQuests;
-    typedef std::vector<uint32> PrevChainQuests;
+    using PrevChainQuests = std::vector<uint32>;
     PrevChainQuests prevChainQuests;
 
     WorldPacket queryData; // pussywizard

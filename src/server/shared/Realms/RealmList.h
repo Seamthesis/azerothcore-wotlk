@@ -51,8 +51,7 @@ struct RealmBuildInfo
 class AC_SHARED_API RealmList
 {
 public:
-    typedef std::map<RealmHandle, Realm> RealmMap;
-
+    using RealmMap = std::map<RealmHandle, Realm>;
     static RealmList* Instance();
 
     void Initialize(Acore::Asio::IoContext& ioContext, uint32 updateInterval);

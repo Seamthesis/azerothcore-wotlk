@@ -33,8 +33,7 @@ enum CharterItemIDs
     ARENA_TEAM_CHARTER_5v5  = 23562
 };
 
-typedef std::map<ObjectGuid, uint32> SignatureMap;
-
+using SignatureMap = std::map<ObjectGuid, uint32>;
 struct Petition
 {
     ObjectGuid petitionGuid;
@@ -49,9 +48,8 @@ struct Signatures
     SignatureMap signatureMap;
 };
 
-typedef std::map<ObjectGuid, Signatures> SignatureContainer;
-typedef std::map<ObjectGuid, Petition> PetitionContainer;
-
+using SignatureContainer = std::map<ObjectGuid, Signatures>;
+using PetitionContainer = std::map<ObjectGuid, Petition>;
 class PetitionMgr
 {
 private:

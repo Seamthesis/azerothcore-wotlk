@@ -29,8 +29,8 @@ class TypeNull;
 template<typename HEAD, typename TAIL>
 struct TypeList
 {
-    typedef HEAD Head;
-    typedef TAIL Tail;
+    using Head = HEAD;
+    using Tail = TAIL;
 };
 
 // enough for now.. can be expand at any point in time as needed

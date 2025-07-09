@@ -119,8 +119,7 @@ class ObjectGuid
     public:
         static ObjectGuid const Empty;
 
-        typedef uint32 LowType;
-
+        using LowType = uint32;
         template<HighGuid type>
         static typename std::enable_if<ObjectGuidTraits<type>::Global, ObjectGuid>::type Create(LowType counter) { return Global(type, counter); }
 
@@ -250,12 +249,11 @@ class ObjectGuid
 };
 
 // Some Shared defines
-typedef std::set<ObjectGuid> GuidSet;
-typedef std::list<ObjectGuid> GuidList;
-typedef std::deque<ObjectGuid> GuidDeque;
-typedef std::vector<ObjectGuid> GuidVector;
-typedef std::unordered_set<ObjectGuid> GuidUnorderedSet;
-
+using GuidSet = std::set<ObjectGuid>;
+using GuidList = std::list<ObjectGuid>;
+using GuidDeque = std::deque<ObjectGuid>;
+using GuidVector = std::vector<ObjectGuid>;
+using GuidUnorderedSet = std::unordered_set<ObjectGuid>;
 // minimum buffer size for packed guid is 9 bytes
 #define PACKED_GUID_MIN_BUFFER_SIZE 9
 

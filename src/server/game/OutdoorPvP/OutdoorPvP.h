@@ -85,8 +85,7 @@ class OutdoorPvP;
 
 struct GossipMenuItems;
 
-typedef GuidSet PlayerSet;
-
+using PlayerSet = GuidSet;
 class OPvPCapturePoint
 {
 public:
@@ -196,10 +195,9 @@ public:
     // deletes all gos/creatures spawned by the pvp
     void DeleteSpawns();
 
-    typedef std::map<ObjectGuid::LowType/*lowguid*/, OPvPCapturePoint*> OPvPCapturePointMap;
-    typedef std::pair<ObjectGuid::LowType, GameObject*> GoScriptPair;
-    typedef std::pair<ObjectGuid::LowType, Creature*> CreatureScriptPair;
-
+    using OPvPCapturePointMap = std::map<ObjectGuid::LowType/*lowguid*/, OPvPCapturePoint*>;
+    using GoScriptPair = std::pair<ObjectGuid::LowType, GameObject*>;
+    using CreatureScriptPair = std::pair<ObjectGuid::LowType, Creature*>;
     virtual void FillInitialWorldStates(WorldPackets::WorldState::InitWorldStates& /*packet*/) {}
 
     // called when a player triggers an area trigger

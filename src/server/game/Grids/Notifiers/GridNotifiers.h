@@ -1725,7 +1725,7 @@ namespace Acore
     class LocalizedPacketListDo
     {
     public:
-        typedef std::vector<WorldPacket*> WorldPacketList;
+        using WorldPacketList = std::vector<WorldPacket*>;
         explicit LocalizedPacketListDo(Builder& builder) : i_builder(builder) {}
 
         ~LocalizedPacketListDo()

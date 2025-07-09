@@ -343,7 +343,7 @@ public:
 
             CharacterDatabaseTransaction trans = CharacterDatabase.BeginTransaction();
 
-            typedef std::pair<uint32, uint32> items;
+            using items = std::pair<uint32, uint32>;
             std::vector<items> questItems;
 
             for (uint8 x = 0; x < QUEST_ITEM_OBJECTIVES_COUNT; ++x)
@@ -570,7 +570,7 @@ public:
                 }
             }
 
-            typedef std::pair<uint32, uint32> items;
+            using items = std::pair<uint32, uint32>;
             std::vector<items> questRewardItems;
 
             if (quest->GetRewChoiceItemsCount())

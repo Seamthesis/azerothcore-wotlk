@@ -69,8 +69,7 @@ private:
     void close();
     bool isOpened() const;
 };
-typedef std::deque<MPQArchive*> ArchiveSet;
-
+using ArchiveSet = std::deque<MPQArchive*>;
 class MPQFile
 {
     //MPQHANDLE handle;

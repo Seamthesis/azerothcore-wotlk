@@ -90,12 +90,11 @@ public:
 
     void AddEvent(BasicEvent* Event, uint64 e_time);
 
-    typedef std::map<ObjectGuid, GroupQueueInfo*> QueuedPlayersMap;
+    using QueuedPlayersMap = std::map<ObjectGuid, GroupQueueInfo*>;
     QueuedPlayersMap m_QueuedPlayers;
 
     //do NOT use deque because deque.erase() invalidates ALL iterators
-    typedef std::list<GroupQueueInfo*> GroupsQueueType;
-
+    using GroupsQueueType = std::list<GroupQueueInfo*>;
     /*
     This two dimensional array is used to store All queued groups
     First dimension specifies the bgTypeId

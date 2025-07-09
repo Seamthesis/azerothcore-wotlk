@@ -417,8 +417,7 @@ public:
     void EffectCastButtons(SpellEffIndex effIndex);
     void EffectRechargeManaGem(SpellEffIndex effIndex);
 
-    typedef std::set<Aura*> UsedSpellMods;
-
+    using UsedSpellMods = std::set<Aura*>;
     void InitExplicitTargets(SpellCastTargets const& targets);
     void SelectExplicitTargets();
 
@@ -754,7 +753,7 @@ public:
 
     bool CanExecuteTriggersOnHit(uint8 effMask, SpellInfo const* triggeredByAura = nullptr) const;
     void PrepareTriggersExecutedOnHit();
-    typedef std::list<HitTriggerSpell> HitTriggerSpellList;
+    using HitTriggerSpellList = std::list<HitTriggerSpell>;
     HitTriggerSpellList m_hitTriggerSpells;
 
     // effect helpers

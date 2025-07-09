@@ -43,7 +43,7 @@ public:
 
     void ResetTimes();
 protected:
-    typedef std::unordered_map<uint32, Guild*> GuildContainer;
+    using GuildContainer = std::unordered_map<uint32, Guild*>;
     uint32 NextGuildId;
     GuildContainer GuildStore;
 };

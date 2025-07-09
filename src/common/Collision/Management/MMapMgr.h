@@ -39,9 +39,8 @@ inline void dtCustomFree(void* ptr)
 //  move map related classes
 namespace MMAP
 {
-    typedef std::unordered_map<uint32, dtTileRef> MMapTileSet;
-    typedef std::unordered_map<uint32, dtNavMeshQuery*> NavMeshQuerySet;
-
+    using MMapTileSet = std::unordered_map<uint32, dtTileRef>;
+    using NavMeshQuerySet = std::unordered_map<uint32, dtNavMeshQuery*>;
     // dummy struct to hold map's mmap data
     struct MMapData
     {
@@ -66,8 +65,7 @@ namespace MMAP
         MMapTileSet loadedTileRefs; // maps [map grid coords] to [dtTile]
     };
 
-    typedef std::unordered_map<uint32, MMapData*> MMapDataSet;
-
+    using MMapDataSet = std::unordered_map<uint32, MMapData*>;
     // singleton class
     // holds all all access to mmap loading unloading and meshes
     class MMapMgr

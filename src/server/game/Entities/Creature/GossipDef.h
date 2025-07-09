@@ -140,8 +140,7 @@ struct GossipMenuItem
 };
 
 // need an ordered container
-typedef std::map<uint32, GossipMenuItem> GossipMenuItemContainer;
-
+using GossipMenuItemContainer = std::map<uint32, GossipMenuItem>;
 struct GossipMenuItemData
 {
     uint32 GossipActionMenuId;  // MenuId of the gossip triggered by this action
@@ -149,16 +148,14 @@ struct GossipMenuItemData
 };
 
 // need an ordered container
-typedef std::map<uint32, GossipMenuItemData> GossipMenuItemDataContainer;
-
+using GossipMenuItemDataContainer = std::map<uint32, GossipMenuItemData>;
 struct QuestMenuItem
 {
     uint32  QuestId;
     uint8   QuestIcon;
 };
 
-typedef std::vector<QuestMenuItem> QuestMenuItemList;
-
+using QuestMenuItemList = std::vector<QuestMenuItem>;
 class GossipMenu
 {
 public:

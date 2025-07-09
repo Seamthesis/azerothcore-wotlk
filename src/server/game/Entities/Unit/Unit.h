@@ -74,9 +74,8 @@ class Vehicle;
 class TransportBase;
 class SpellCastTargets;
 
-typedef std::list<Unit*> UnitList;
-typedef std::list< std::pair<Aura*, uint8> > DispelChargesList;
-
+using UnitList = std::list<Unit*>;
+using DispelChargesList = std::list< std::pair<Aura*, uint8> >;
 enum CharmType : uint8;
 
 enum VictimState
@@ -565,8 +564,7 @@ enum class SearchMethod
     MatchAny
 };
 
-typedef std::list<Player*> SharedVisionList;
-
+using SharedVisionList = std::list<Player*>;
 struct AttackPosition {
     AttackPosition(Position pos) : _pos(std::move(pos)), _taken(false) {}
     bool operator==(const int val)
@@ -608,8 +606,7 @@ enum SpellCooldownFlags
     SPELL_COOLDOWN_FLAG_INCLUDE_EVENT_COOLDOWNS = 0x2   ///< Starts GCD for spells that should start their cooldown on events, requires SPELL_COOLDOWN_FLAG_INCLUDE_GCD set
 };
 
-typedef std::unordered_map<uint32, uint32> PacketCooldowns;
-
+using PacketCooldowns = std::unordered_map<uint32, uint32>;
 // delay time next attack to prevent client attack animation problems
 #define ATTACK_DISPLAY_DELAY 200
 #define MAX_PLAYER_STEALTH_DETECT_RANGE 30.0f               // max distance for detection targets by player
@@ -619,28 +616,22 @@ struct SpellProcEventEntry;                                 // used only private
 class Unit : public WorldObject
 {
 public:
-    typedef std::unordered_set<Unit*> AttackerSet;
-    typedef std::set<Unit*> ControlSet;
-
-    typedef std::multimap<uint32,  Aura*> AuraMap;
-    typedef std::pair<AuraMap::const_iterator, AuraMap::const_iterator> AuraMapBounds;
-    typedef std::pair<AuraMap::iterator, AuraMap::iterator> AuraMapBoundsNonConst;
-
-    typedef std::multimap<uint32,  AuraApplication*> AuraApplicationMap;
-    typedef std::pair<AuraApplicationMap::const_iterator, AuraApplicationMap::const_iterator> AuraApplicationMapBounds;
-    typedef std::pair<AuraApplicationMap::iterator, AuraApplicationMap::iterator> AuraApplicationMapBoundsNonConst;
-
-    typedef std::multimap<AuraStateType,  AuraApplication*> AuraStateAurasMap;
-    typedef std::pair<AuraStateAurasMap::const_iterator, AuraStateAurasMap::const_iterator> AuraStateAurasMapBounds;
-
-    typedef std::list<AuraEffect*> AuraEffectList;
-    typedef std::list<Aura*> AuraList;
-    typedef std::list<AuraApplication*> AuraApplicationList;
-    typedef std::list<DiminishingReturn> Diminishing;
-    typedef GuidUnorderedSet ComboPointHolderSet;
-
-    typedef std::map<uint8, AuraApplication*> VisibleAuraMap;
-
+    using AttackerSet = std::unordered_set<Unit*>;
+    using ControlSet = std::set<Unit*>;
+    using AuraMap = std::multimap<uint32,  Aura*>;
+    using AuraMapBounds = std::pair<AuraMap::const_iterator, AuraMap::const_iterator>;
+    using AuraMapBoundsNonConst = std::pair<AuraMap::iterator, AuraMap::iterator>;
+    using AuraApplicationMap = std::multimap<uint32,  AuraApplication*>;
+    using AuraApplicationMapBounds = std::pair<AuraApplicationMap::const_iterator, AuraApplicationMap::const_iterator>;
+    using AuraApplicationMapBoundsNonConst = std::pair<AuraApplicationMap::iterator, AuraApplicationMap::iterator>;
+    using AuraStateAurasMap = std::multimap<AuraStateType,  AuraApplication*>;
+    using AuraStateAurasMapBounds = std::pair<AuraStateAurasMap::const_iterator, AuraStateAurasMap::const_iterator>;
+    using AuraEffectList = std::list<AuraEffect*>;
+    using AuraList = std::list<Aura*>;
+    using AuraApplicationList = std::list<AuraApplication*>;
+    using Diminishing = std::list<DiminishingReturn>;
+    using ComboPointHolderSet = GuidUnorderedSet;
+    using VisibleAuraMap = std::map<uint8, AuraApplication*>;
     ~Unit() override;
 
     void Update(uint32 time) override;
@@ -1997,7 +1988,7 @@ public:
     uint32 m_lastSanctuaryTime;
 
     // pet auras
-    typedef std::set<PetAura const*> PetAuraSet;
+    using PetAuraSet = std::set<PetAura const*>;
     PetAuraSet m_petAuras;
 
     bool IsAIEnabled;
@@ -2059,10 +2050,10 @@ protected:
 
     int32 m_procDeep;
 
-    typedef std::list<DynamicObject*> DynObjectList;
+    using DynObjectList = std::list<DynamicObject*>;
     DynObjectList m_dynObj;
 
-    typedef GuidList GameObjectList;
+    using GameObjectList = GuidList;
     GameObjectList m_gameObj;
     uint32 m_transform;
 
@@ -2096,7 +2087,7 @@ protected:
     int32 m_regenTimer;
 
     ThreatMgr m_ThreatMgr;
-    typedef std::map<ObjectGuid, float> CharmThreatMap;
+    using CharmThreatMap = std::map<ObjectGuid, float>;
     CharmThreatMap _charmThreatInfo;
 
     Vehicle* m_vehicle;
@@ -2163,7 +2154,7 @@ private:
     std::unordered_map<ObjectGuid /*guid*/, uint32 /*count*/> extraAttacksTargets;
     ObjectGuid _lastDamagedTargetGuid;
 
-    typedef std::unordered_map<uint64 /*visibleFlag(uint32) + updateType(uint8)*/, BuildValuesCachedBuffer>  ValuesUpdateCache;
+    using ValuesUpdateCache = std::unordered_map<uint64 /*visibleFlag(uint32) + updateType(uint8)*/, BuildValuesCachedBuffer>;
     ValuesUpdateCache _valuesUpdateCache;
 };
 

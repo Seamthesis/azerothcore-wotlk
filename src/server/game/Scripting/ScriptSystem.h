@@ -56,8 +56,7 @@ struct ScriptPointMove
     uint32 uiWaitTime;
 };
 
-typedef std::vector<ScriptPointMove> ScriptPointVector;
-
+using ScriptPointVector = std::vector<ScriptPointMove>;
 class SystemMgr
 {
     SystemMgr() {}
@@ -66,8 +65,7 @@ class SystemMgr
 public:
     static SystemMgr* instance();
 
-    typedef std::unordered_map<uint32, ScriptPointVector> PointMoveMap;
-
+    using PointMoveMap = std::unordered_map<uint32, ScriptPointVector>;
     //Database
     void LoadScriptWaypoints();
 

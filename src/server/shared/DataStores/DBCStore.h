@@ -54,8 +54,7 @@ template <class T>
 class DBCStorage : public DBCStorageBase
 {
 public:
-    typedef DBCStorageIterator<T> iterator;
-
+    using iterator = DBCStorageIterator<T>;
     explicit DBCStorage(char const* fmt) : DBCStorageBase(fmt)
     {
         _indexTable.AsT = nullptr;
@@ -74,7 +73,7 @@ public:
         if (id >= _indexTableSize)
         {
             // Resize
-            typedef char* ptr;
+            using ptr = char*;
             std::size_t newSize = id + 1;
             ptr* newArr = new ptr[newSize];
             memset(newArr, 0, newSize * sizeof(ptr));

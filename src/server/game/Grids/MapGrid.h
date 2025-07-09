@@ -31,8 +31,7 @@ template
 class MapGrid
 {
 public:
-    typedef GridCell<WORLD_OBJECT_TYPES, GRID_OBJECT_TYPES> GridCellType;
-
+    using GridCellType = GridCell<WORLD_OBJECT_TYPES, GRID_OBJECT_TYPES>;
     MapGrid(uint16 const x, uint16 const y)
         : _x(x), _y(y), _objectDataLoaded(false), _terrainData(nullptr) { }
 

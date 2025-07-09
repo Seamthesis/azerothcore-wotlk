@@ -25,8 +25,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-typedef std::list<uint32> SimpleFactionsList;
-
+using SimpleFactionsList = std::list<uint32>;
 SimpleFactionsList const* GetFactionTeamList(uint32 faction);
 
 char const* GetPetName(uint32 petfamily, uint32 dbclang);
@@ -48,7 +47,7 @@ ContentLevels GetContentLevelsForMapAndZone(uint32 mapid, uint32 zoneId);
 void Zone2MapCoordinates(float& x, float& y, uint32 zone);
 void Map2ZoneCoordinates(float& x, float& y, uint32 zone);
 
-typedef std::map<uint32/*pair32(map, diff)*/, MapDifficulty> MapDifficultyMap;
+using MapDifficultyMap = std::map<uint32/*pair32(map, diff)*/, MapDifficulty>;
 MapDifficulty const* GetMapDifficultyData(uint32 mapId, Difficulty difficulty);
 MapDifficulty const* GetDownscaledMapDifficultyData(uint32 mapId, Difficulty& difficulty);
 
@@ -68,11 +67,11 @@ LFGDungeonEntry const* GetZoneLFGDungeonEntry(std::string const& zoneName, Local
 
 uint32 GetDefaultMapLight(uint32 mapId);
 
-typedef std::unordered_multimap<uint32, SkillRaceClassInfoEntry const*> SkillRaceClassInfoMap;
-typedef std::pair<SkillRaceClassInfoMap::iterator, SkillRaceClassInfoMap::iterator> SkillRaceClassInfoBounds;
+using SkillRaceClassInfoMap = std::unordered_multimap<uint32, SkillRaceClassInfoEntry const*>;
+using SkillRaceClassInfoBounds = std::pair<SkillRaceClassInfoMap::iterator, SkillRaceClassInfoMap::iterator>;
 SkillRaceClassInfoEntry const* GetSkillRaceClassInfo(uint32 skill, uint8 race, uint8 class_);
 
-typedef std::unordered_map<uint32 /* SkillLine */, std::vector<SkillLineAbilityEntry const*> > SkillLineAbilityIndexBySkillLine;
+using SkillLineAbilityIndexBySkillLine = std::unordered_map<uint32 /* SkillLine */, std::vector<SkillLineAbilityEntry const*> >;
 const std::vector<SkillLineAbilityEntry const*>& GetSkillLineAbilitiesBySkillLine(uint32 skillLine);
 
 extern DBCStorage <AchievementEntry>             sAchievementStore;

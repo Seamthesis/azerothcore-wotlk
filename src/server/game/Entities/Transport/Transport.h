@@ -33,7 +33,7 @@ public:
     void CalculatePassengerPosition(float& x, float& y, float& z, float* o = nullptr) const override { TransportBase::CalculatePassengerPosition(x, y, z, o, GetPositionX(), GetPositionY(), GetPositionZ(), GetOrientation()); }
     void CalculatePassengerOffset(float& x, float& y, float& z, float* o = nullptr) const override { TransportBase::CalculatePassengerOffset(x, y, z, o, GetPositionX(), GetPositionY(), GetPositionZ(), GetOrientation()); }
 
-    typedef std::set<WorldObject*> PassengerSet;
+    using PassengerSet = std::set<WorldObject*>;
     virtual void AddPassenger(WorldObject* passenger, bool withAll = false) = 0;
     virtual void RemovePassenger(WorldObject* passenger, bool withAll = false) = 0;
     PassengerSet const& GetPassengers() const { return _passengers; }

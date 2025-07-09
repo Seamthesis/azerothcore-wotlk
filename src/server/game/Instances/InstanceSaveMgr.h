@@ -43,15 +43,13 @@ struct InstancePlayerBind
     InstancePlayerBind() :  perm(false), extended(false) {}
 };
 
-typedef std::unordered_map<uint32 /*mapId*/, InstancePlayerBind > BoundInstancesMap;
-
+using BoundInstancesMap = std::unordered_map<uint32 /*mapId*/, InstancePlayerBind >;
 struct BoundInstancesMapWrapper
 {
     BoundInstancesMap m[MAX_DIFFICULTY];
 };
 
-typedef std::unordered_map<ObjectGuid /*guid*/, BoundInstancesMapWrapper* > PlayerBindStorage;
-
+using PlayerBindStorage = std::unordered_map<ObjectGuid /*guid*/, BoundInstancesMapWrapper* >;
 class InstanceSave
 {
     friend class InstanceSaveMgr;
@@ -101,8 +99,7 @@ private:
     std::mutex _lock;
 };
 
-typedef std::unordered_map<uint32 /*PAIR32(map, difficulty)*/, time_t /*resetTime*/> ResetTimeByMapDifficultyMap;
-
+using ResetTimeByMapDifficultyMap = std::unordered_map<uint32 /*PAIR32(map, difficulty)*/, time_t /*resetTime*/>;
 class InstanceSaveMgr
 {
     friend class InstanceSave;
@@ -114,8 +111,7 @@ private:
 public:
     static InstanceSaveMgr* instance();
 
-    typedef std::unordered_map<uint32 /*InstanceId*/, InstanceSave*> InstanceSaveHashMap;
-
+    using InstanceSaveHashMap = std::unordered_map<uint32 /*InstanceId*/, InstanceSave*>;
     struct InstResetEvent
     {
         uint8 type{0}; // 0 - unused, 1-4 warnings about pending reset, 5 - reset
@@ -126,8 +122,7 @@ public:
         InstResetEvent(uint8 t, uint32 _mapid, Difficulty d)
             : type(t), difficulty(d), mapid(_mapid) {}
     };
-    typedef std::multimap<time_t /*resetTime*/, InstResetEvent> ResetTimeQueue;
-
+    using ResetTimeQueue = std::multimap<time_t /*resetTime*/, InstResetEvent>;
     void LoadInstances();
     void LoadResetTimes();
     void LoadInstanceSaves();

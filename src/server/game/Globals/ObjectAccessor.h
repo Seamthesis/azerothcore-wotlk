@@ -44,8 +44,7 @@ class HashMapHolder
 
 public:
 
-    typedef std::unordered_map<ObjectGuid, T*> MapType;
-
+    using MapType = std::unordered_map<ObjectGuid, T*>;
     static void Insert(T* o);
 
     static void Remove(T* o);

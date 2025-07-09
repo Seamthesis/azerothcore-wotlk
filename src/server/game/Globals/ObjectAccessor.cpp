@@ -82,7 +82,7 @@ template class HashMapHolder<MotionTransport>;
 
 namespace PlayerNameMapHolder
 {
-    typedef std::unordered_map<std::string, Player*> MapType;
+    using MapType = std::unordered_map<std::string, Player*>;
     static MapType PlayerNameMap;
 
     void Insert(Player* p)

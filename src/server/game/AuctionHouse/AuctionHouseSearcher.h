@@ -94,8 +94,7 @@ struct SearchableAuctionEntry
     int CompareAuctionEntry(uint32 column, SearchableAuctionEntry const& auc, int loc_idx) const;
 };
 
-typedef std::vector<AuctionSortInfo> AuctionSortOrderVector;
-
+using AuctionSortOrderVector = std::vector<AuctionSortInfo>;
 struct AuctionHouseSearchInfo
 {
     std::wstring wsearchedname;
@@ -111,9 +110,8 @@ struct AuctionHouseSearchInfo
     AuctionSortOrderVector sorting;
 };
 
-typedef std::unordered_map<uint32, uint16> AuctionPlayerSkills;
-typedef std::unordered_set<uint32> AuctionPlayerSpells;
-
+using AuctionPlayerSkills = std::unordered_map<uint32, uint16>;
+using AuctionPlayerSpells = std::unordered_set<uint32>;
 struct AuctionHouseUsablePlayerInfo
 {
     uint32 classMask;
@@ -226,9 +224,8 @@ struct AuctionSearchUpdateBid : AuctionSearcherUpdate
     ObjectGuid bidderGuid;
 };
 
-typedef std::unordered_map<uint32, std::shared_ptr<SearchableAuctionEntry>> SearchableAuctionEntriesMap;
-typedef std::vector<SearchableAuctionEntry*> SortableAuctionEntriesList;
-
+using SearchableAuctionEntriesMap = std::unordered_map<uint32, std::shared_ptr<SearchableAuctionEntry>>;
+using SortableAuctionEntriesList = std::vector<SearchableAuctionEntry*>;
 class AuctionSorter
 {
 public:

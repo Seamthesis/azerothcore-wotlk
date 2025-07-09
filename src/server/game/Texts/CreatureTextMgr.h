@@ -75,11 +75,10 @@ typedef std::vector<CreatureTextEntry> CreatureTextGroup;              // texts 
 typedef std::unordered_map<uint8, CreatureTextGroup> CreatureTextHolder;    // groups for a creature by groupid
 typedef std::unordered_map<uint32, CreatureTextHolder> CreatureTextMap;     // all creatures by entry
 
-typedef std::map<CreatureTextId, CreatureTextLocale> LocaleCreatureTextMap;
-
+using LocaleCreatureTextMap = std::map<CreatureTextId, CreatureTextLocale>;
 //used for handling non-repeatable random texts
-typedef std::vector<uint8> CreatureTextRepeatIds;
-typedef std::unordered_map<uint8, CreatureTextRepeatIds> CreatureTextRepeatGroup;
+using CreatureTextRepeatIds = std::vector<uint8>;
+using CreatureTextRepeatGroup = std::unordered_map<uint8, CreatureTextRepeatIds>;
 typedef std::unordered_map<ObjectGuid, CreatureTextRepeatGroup> CreatureTextRepeatMap;//guid based
 
 class CreatureTextMgr

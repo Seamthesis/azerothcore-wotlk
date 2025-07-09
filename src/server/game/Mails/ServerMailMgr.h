@@ -140,8 +140,7 @@ struct ServerMail
     std::vector<ServerMailItems> itemsH;
 };
 
-typedef std::unordered_map<uint32, ServerMail> ServerMailContainer;
-
+using ServerMailContainer = std::unordered_map<uint32, ServerMail>;
 class ServerMailMgr
 {
 private:

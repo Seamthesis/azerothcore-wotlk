@@ -144,8 +144,7 @@ class ThreatContainer
     friend class ThreatMgr;
 
 public:
-    typedef std::list<HostileReference*> StorageType;
-
+    using StorageType = std::list<HostileReference*>;
     ThreatContainer() = default;
 
     ~ThreatContainer() { clearReferences(); }
@@ -197,8 +196,7 @@ private:
 
 //=================================================
 
-typedef HostileReference ThreatReference;
-
+using ThreatReference = HostileReference;
 class ThreatMgr
 {
 public:

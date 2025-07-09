@@ -19,10 +19,10 @@
 #define MODELHEADERS_H
 
 /* typedef unsigned char uint8;
-typedef char int8;
-typedef unsigned short uint16;
-typedef short int16;
-typedef unsigned int uint32;
+using int8 = char;
+using uint16 = unsigned short;
+using int16 = short;
+using uint32 = unsigned int;
 typedef int int32; */
 
 #pragma pack(push,1)

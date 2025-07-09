@@ -41,8 +41,7 @@ struct AC_DATABASE_API UpdateResult
 
 class AC_DATABASE_API UpdateFetcher
 {
-    typedef std::filesystem::path Path;
-
+    using Path = std::filesystem::path;
 public:
     UpdateFetcher(Path const& updateDirectory,
                   std::function<void(std::string const&)> const& apply,
@@ -128,18 +127,16 @@ private:
 
     struct DirectoryEntry;
 
-    typedef std::pair<Path, State> LocaleFileEntry;
-
+    using LocaleFileEntry = std::pair<Path, State>;
     struct PathCompare
     {
         bool operator()(LocaleFileEntry const& left, LocaleFileEntry const& right) const;
     };
 
-    typedef std::set<LocaleFileEntry, PathCompare> LocaleFileStorage;
-    typedef std::unordered_map<std::string, std::string> HashToFileNameStorage;
-    typedef std::unordered_map<std::string, AppliedFileEntry> AppliedFileStorage;
-    typedef std::vector<UpdateFetcher::DirectoryEntry> DirectoryStorage;
-
+    using LocaleFileStorage = std::set<LocaleFileEntry, PathCompare>;
+    using HashToFileNameStorage = std::unordered_map<std::string, std::string>;
+    using AppliedFileStorage = std::unordered_map<std::string, AppliedFileEntry>;
+    using DirectoryStorage = std::vector<UpdateFetcher::DirectoryEntry>;
     LocaleFileStorage GetFileList() const;
     void FillFileListRecursively(Path const& path, LocaleFileStorage& storage,
                                  State const state, uint32 const depth) const;

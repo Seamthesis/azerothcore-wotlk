@@ -44,9 +44,8 @@ struct WaypointData
     uint8 event_chance;
 };
 
-typedef std::vector<WaypointData*> WaypointPath;
-typedef std::unordered_map<uint32, WaypointPath> WaypointPathContainer;
-
+using WaypointPath = std::vector<WaypointData*>;
+using WaypointPathContainer = std::unordered_map<uint32, WaypointPath>;
 class WaypointMgr
 {
 public:

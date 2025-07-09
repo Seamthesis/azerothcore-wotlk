@@ -35,8 +35,7 @@ class EventMap
     * - Bit 24 - 31: Phase
     * - Pattern: 0xPPGGEEEE
     */
-    typedef std::multimap<uint32, uint32> EventStore;
-
+    using EventStore = std::multimap<uint32, uint32>;
 public:
     EventMap() { }
 

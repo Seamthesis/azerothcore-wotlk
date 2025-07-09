@@ -77,10 +77,9 @@ public:
     static bool IsPathfindingEnabled(Map const* map);
 
     // single disables here with optional data
-    typedef std::unordered_map<uint32, DisableData> DisableTypeMap;
+    using DisableTypeMap = std::unordered_map<uint32, DisableData>;
     // global disable map by source
-    typedef std::array<DisableTypeMap, MAX_DISABLE_TYPES> DisableMap;
-
+    using DisableMap = std::array<DisableTypeMap, MAX_DISABLE_TYPES>;
 private:
     static DisableMap m_DisableMap;
 };

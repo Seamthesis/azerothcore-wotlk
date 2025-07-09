@@ -186,7 +186,7 @@ char* DBCFileLoader::AutoProduceData(char const* format, uint32& records, char**
     this func will generate  entry[rows] data;
     */
 
-    typedef char* ptr;
+    using ptr = char*;
     if (strlen(format) != fieldCount)
     {
         return nullptr;

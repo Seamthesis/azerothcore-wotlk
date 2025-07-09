@@ -32,10 +32,10 @@ class WintergraspCapturePoint;
 struct BfWGGameObjectBuilding;
 struct WGWorkshop;
 
-typedef std::set<GameObject*> GameObjectSet;
-typedef std::set<BfWGGameObjectBuilding*> GameObjectBuilding;
-typedef std::set<WGWorkshop*> Workshop;
-typedef std::set<Group*> GroupSet;
+using GameObjectSet = std::set<GameObject*>;
+using GameObjectBuilding = std::set<BfWGGameObjectBuilding*>;
+using Workshop = std::set<WGWorkshop*>;
+using GroupSet = std::set<Group*>;
 //typedef std::set<WintergraspCapturePoint *> CapturePointSet; unused ?
 
 uint32 const VehNumWorldState[2] = { WORLD_STATE_BATTLEFIELD_WG_VEHICLE_A, WORLD_STATE_BATTLEFIELD_WG_VEHICLE_H };

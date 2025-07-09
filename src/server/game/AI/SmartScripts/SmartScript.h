@@ -198,7 +198,7 @@ public:
     void SetScript9(SmartScriptHolder& e, uint32 entry);
     WorldObject* GetLastInvoker(WorldObject* invoker = nullptr) const;
     ObjectGuid mLastInvoker;
-    typedef std::unordered_map<uint32, uint32> CounterMap;
+    using CounterMap = std::unordered_map<uint32, uint32>;
     CounterMap mCounterList;
 
     bool AllowPhaseReset() const { return _allowPhaseReset; }

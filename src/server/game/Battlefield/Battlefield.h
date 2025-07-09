@@ -71,9 +71,8 @@ class Unit;
 class Battlefield;
 class BfGraveyard;
 
-typedef std::vector<BfGraveyard*> GraveyardVect;
-typedef std::map<ObjectGuid, time_t> PlayerTimerMap;
-
+using GraveyardVect = std::vector<BfGraveyard*>;
+using PlayerTimerMap = std::map<ObjectGuid, time_t>;
 class BfCapturePoint
 {
 public:
@@ -211,8 +210,7 @@ public:
     ~Battlefield() override;
 
     /// typedef of map witch store capturepoint and the associate gameobject entry
-    typedef std::vector<BfCapturePoint*> BfCapturePointVector;
-
+    using BfCapturePointVector = std::vector<BfCapturePoint*>;
     /// Call this to init the Battlefield
     virtual bool SetupBattlefield() { return true; }
 

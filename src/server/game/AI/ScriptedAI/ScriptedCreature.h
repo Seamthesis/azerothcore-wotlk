@@ -25,19 +25,17 @@
 #include "InstanceScript.h"
 #include "TaskScheduler.h"
 
-typedef std::list<WorldObject*> ObjectList;
-
+using ObjectList = std::list<WorldObject*>;
 class InstanceScript;
 
 class SummonList
 {
 public:
-    typedef GuidList StorageType;
-    typedef StorageType::iterator iterator;
-    typedef StorageType::const_iterator const_iterator;
-    typedef StorageType::size_type size_type;
-    typedef StorageType::value_type value_type;
-
+    using StorageType = GuidList;
+    using iterator = StorageType::iterator;
+    using const_iterator = StorageType::const_iterator;
+    using size_type = StorageType::size_type;
+    using value_type = StorageType::value_type;
     explicit SummonList(Creature* creature)
         : me(creature)
     { }

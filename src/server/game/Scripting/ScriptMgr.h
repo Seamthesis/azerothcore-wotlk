@@ -730,15 +730,12 @@ template<class TScript>
 class ScriptRegistry
 {
 public:
-    typedef std::map<uint32, TScript*> ScriptMap;
-    typedef typename ScriptMap::iterator ScriptMapIterator;
-
-    typedef std::vector<std::pair<TScript*,std::vector<uint16>>> ScriptVector;
-    typedef typename ScriptVector::iterator ScriptVectorIterator;
-
-    typedef std::vector<std::vector<TScript*>> EnabledHooksVector;
-    typedef typename EnabledHooksVector::iterator EnabledHooksVectorIterator;
-
+    using ScriptMap = std::map<uint32, TScript*>;
+    using ScriptMapIterator = typename ScriptMap::iterator;
+    using ScriptVector = std::vector<std::pair<TScript*,std::vector<uint16>>>;
+    using ScriptVectorIterator = typename ScriptVector::iterator;
+    using EnabledHooksVector = std::vector<std::vector<TScript*>>;
+    using EnabledHooksVectorIterator = typename EnabledHooksVector::iterator;
     // The actual list of scripts. This will be accessed concurrently, so it must not be modified
     // after server startup.
     static ScriptMap ScriptPointerList;

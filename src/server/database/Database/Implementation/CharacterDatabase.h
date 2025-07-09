@@ -534,8 +534,7 @@ enum CharacterDatabaseStatements : uint32
 class AC_DATABASE_API CharacterDatabaseConnection : public MySQLConnection
 {
 public:
-    typedef CharacterDatabaseStatements Statements;
-
+    using Statements = CharacterDatabaseStatements;
     //- Constructors for sync and async connections
     CharacterDatabaseConnection(MySQLConnectionInfo& connInfo);
     CharacterDatabaseConnection(ProducerConsumerQueue<SQLOperation*>* q, MySQLConnectionInfo& connInfo);

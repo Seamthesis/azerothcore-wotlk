@@ -39,13 +39,11 @@ struct TransportAnimation;
 typedef void(*goEventFlag)(Player*, GameObject*, Battleground*);
 
 // Benchmarked: Faster than std::map (insert/find)
-typedef std::unordered_map<uint32, GameObjectTemplate> GameObjectTemplateContainer;
-typedef std::unordered_map<uint32, GameObjectTemplateAddon> GameObjectTemplateAddonContainer;
-
-typedef std::unordered_map<uint32, GameObjectAddon> GameObjectAddonContainer;
-typedef std::vector<uint32> GameObjectQuestItemList;
-typedef std::unordered_map<uint32, GameObjectQuestItemList> GameObjectQuestItemMap;
-
+using GameObjectTemplateContainer = std::unordered_map<uint32, GameObjectTemplate>;
+using GameObjectTemplateAddonContainer = std::unordered_map<uint32, GameObjectTemplateAddon>;
+using GameObjectAddonContainer = std::unordered_map<uint32, GameObjectAddon>;
+using GameObjectQuestItemList = std::vector<uint32>;
+using GameObjectQuestItemMap = std::unordered_map<uint32, GameObjectQuestItemList>;
 union GameObjectValue
 {
     //11 GAMEOBJECT_TYPE_TRANSPORT
@@ -382,7 +380,7 @@ protected:
     GuidSet m_unique_users;
     uint32 m_usetimes;
 
-    typedef std::map<uint32, ObjectGuid> ChairSlotAndUser;
+    using ChairSlotAndUser = std::map<uint32, ObjectGuid>;
     ChairSlotAndUser ChairListSlots;
 
     ObjectGuid::LowType m_spawnId;                            ///< For new or temporary gameobjects is 0 for saved it is lowguid

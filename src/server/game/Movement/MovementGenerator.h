@@ -80,8 +80,7 @@ public:
     }
 };
 
-typedef FactoryHolder<MovementGenerator, Unit, MovementGeneratorType> MovementGeneratorCreator;
-
+using MovementGeneratorCreator = FactoryHolder<MovementGenerator, Unit, MovementGeneratorType>;
 template<class Movement>
 struct MovementGeneratorFactory : public MovementGeneratorCreator
 {
@@ -100,8 +99,7 @@ struct IdleMovementFactory : public MovementGeneratorCreator
     MovementGenerator* Create(Unit* object) const override;
 };
 
-typedef MovementGeneratorCreator::FactoryHolderRegistry MovementGeneratorRegistry;
-
+using MovementGeneratorRegistry = MovementGeneratorCreator::FactoryHolderRegistry;
 #define sMovementGeneratorRegistry MovementGeneratorRegistry::instance()
 
 #endif

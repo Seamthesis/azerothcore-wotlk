@@ -64,7 +64,7 @@ class PlayerSocial;
 class SpellCastTargets;
 class UpdateMask;
 
-typedef std::deque<Mail*> PlayerMails;
+using PlayerMails = std::deque<Mail*>;
 typedef void(*bgZoneRef)(Battleground*, WorldPackets::WorldState::InitWorldStates&);
 
 #define PLAYER_MAX_SKILLS           127
@@ -190,12 +190,10 @@ struct SpellModifier
     uint32 priority{0};
 };
 
-typedef std::unordered_map<uint32, PlayerTalent*> PlayerTalentMap;
-typedef std::unordered_map<uint32, PlayerSpell*> PlayerSpellMap;
-typedef std::list<SpellModifier*> SpellModList;
-
-typedef GuidList WhisperListContainer;
-
+using PlayerTalentMap = std::unordered_map<uint32, PlayerTalent*>;
+using PlayerSpellMap = std::unordered_map<uint32, PlayerSpell*>;
+using SpellModList = std::list<SpellModifier*>;
+using WhisperListContainer = GuidList;
 struct SpellCooldown
 {
     uint32 end;
@@ -206,9 +204,8 @@ struct SpellCooldown
     bool needSendToClient: 1;
 };
 
-typedef std::map<uint32, SpellCooldown> SpellCooldowns;
-typedef std::unordered_map<uint32 /*instanceId*/, time_t/*releaseTime*/> InstanceTimeMap;
-
+using SpellCooldowns = std::map<uint32, SpellCooldown>;
+using InstanceTimeMap = std::unordered_map<uint32 /*instanceId*/, time_t/*releaseTime*/>;
 enum TrainerSpellState
 {
     TRAINER_SPELL_GREEN = 0,
@@ -279,8 +276,7 @@ struct ActionButton
 
 #define  MAX_ACTION_BUTTONS 144                             //checked in 3.2.0
 
-typedef std::map<uint8, ActionButton> ActionButtonList;
-
+using ActionButtonList = std::map<uint8, ActionButton>;
 struct PlayerCreateInfoItem
 {
     PlayerCreateInfoItem(uint32 id, uint32 amount) : item_id(id), item_amount(amount) {}
@@ -289,8 +285,7 @@ struct PlayerCreateInfoItem
     uint32 item_amount;
 };
 
-typedef std::list<PlayerCreateInfoItem> PlayerCreateInfoItems;
-
+using PlayerCreateInfoItems = std::list<PlayerCreateInfoItem>;
 struct PlayerClassLevelInfo
 {
     PlayerClassLevelInfo()  = default;
@@ -315,8 +310,7 @@ struct PlayerLevelInfo
     std::array<uint32, MAX_STATS> stats = { };
 };
 
-typedef std::list<uint32> PlayerCreateInfoSpells;
-
+using PlayerCreateInfoSpells = std::list<uint32>;
 struct PlayerCreateInfoAction
 {
     PlayerCreateInfoAction()  = default;
@@ -327,16 +321,14 @@ struct PlayerCreateInfoAction
     uint32 action{0};
 };
 
-typedef std::list<PlayerCreateInfoAction> PlayerCreateInfoActions;
-
+using PlayerCreateInfoActions = std::list<PlayerCreateInfoAction>;
 struct PlayerCreateInfoSkill
 {
     uint16 SkillId;
     uint16 Rank;
 };
 
-typedef std::list<PlayerCreateInfoSkill> PlayerCreateInfoSkills;
-
+using PlayerCreateInfoSkills = std::list<PlayerCreateInfoSkill>;
 struct PlayerInfo
 {
     // existence checked by displayId != 0
@@ -454,9 +446,8 @@ struct EnchantDuration
     uint32 leftduration{0};
 };
 
-typedef std::list<EnchantDuration> EnchantDurationList;
-typedef std::list<Item*> ItemDurationList;
-
+using EnchantDurationList = std::list<EnchantDuration>;
+using ItemDurationList = std::list<Item*>;
 enum PlayerMovementType
 {
     MOVE_ROOT       = 1,
@@ -618,12 +609,10 @@ enum AtLoginFlags
     AT_LOGIN_RESURRECT         = 0x800
 };
 
-typedef std::map<uint32, QuestStatusData> QuestStatusMap;
-typedef std::unordered_set<uint32> RewardedQuestSet;
-
+using QuestStatusMap = std::map<uint32, QuestStatusData>;
+using RewardedQuestSet = std::unordered_set<uint32>;
 //               quest,  keep
-typedef std::map<uint32, bool> QuestStatusSaveMap;
-
+using QuestStatusSaveMap = std::map<uint32, bool>;
 enum QuestSlotOffsets
 {
     QUEST_ID_OFFSET     = 0,
@@ -658,8 +647,7 @@ struct SkillStatusData
     SkillUpdateState uState;
 };
 
-typedef std::unordered_map<uint32, SkillStatusData> SkillStatusMap;
-
+using SkillStatusMap = std::unordered_map<uint32, SkillStatusData>;
 class Quest;
 class Spell;
 class Item;
@@ -766,8 +754,7 @@ struct EquipmentSet
 
 #define MAX_EQUIPMENT_SET_INDEX 10                          // client limit
 
-typedef std::map<uint32, EquipmentSet> EquipmentSets;
-
+using EquipmentSets = std::map<uint32, EquipmentSet>;
 struct ItemPosCount
 {
     ItemPosCount(uint16 _pos, uint32 _count) : pos(_pos), count(_count) {}
@@ -775,8 +762,7 @@ struct ItemPosCount
     uint16 pos;
     uint32 count;
 };
-typedef std::vector<ItemPosCount> ItemPosCountVec;
-
+using ItemPosCountVec = std::vector<ItemPosCount>;
 struct SavedItem
 {
     Item* item;
@@ -1673,8 +1659,7 @@ public:
     uint8 unReadMails;
     time_t m_nextMailDelivereTime;
 
-    typedef std::unordered_map<ObjectGuid::LowType, Item*> ItemMap;
-
+    using ItemMap = std::unordered_map<ObjectGuid::LowType, Item*>;
     ItemMap mMitems;                                    //template defined in objectmgr.cpp
 
     Item* GetMItem(ObjectGuid::LowType itemLowGuid)
@@ -2420,7 +2405,7 @@ public:
     bool IsUsingLfg();
     bool inRandomLfgDungeon();
 
-    typedef std::set<uint32> DFQuestsDoneList;
+    using DFQuestsDoneList = std::set<uint32>;
     DFQuestsDoneList m_DFQuests;
 
     // Temporarily removed pet cache
@@ -2704,9 +2689,9 @@ protected:
     /*********************************************************/
 
     //We allow only one timed quest active at the same time. Below can then be simple value instead of set.
-    typedef std::set<uint32> QuestSet;
-    typedef std::set<uint32> SeasonalQuestSet;
-    typedef std::unordered_map<uint32, SeasonalQuestSet> SeasonalEventQuestMap;
+    using QuestSet = std::set<uint32>;
+    using SeasonalQuestSet = std::set<uint32>;
+    using SeasonalEventQuestMap = std::unordered_map<uint32, SeasonalQuestSet>;
     QuestSet m_timedquests;
     QuestSet m_weeklyquests;
     QuestSet m_monthlyquests;
@@ -2858,7 +2843,7 @@ protected:
 
     WorldSession* m_session;
 
-    typedef std::list<Channel*> JoinedChannelsList;
+    using JoinedChannelsList = std::list<Channel*>;
     JoinedChannelsList m_channels;
 
     uint8 m_cinematic;
@@ -2948,7 +2933,7 @@ private:
 
     CinematicMgr* _cinematicMgr;
 
-    typedef GuidSet RefundableItemsSet;
+    using RefundableItemsSet = GuidSet;
     RefundableItemsSet m_refundableItems;
     void SendRefundInfo(Item* item);
     void RefundItem(Item* item);

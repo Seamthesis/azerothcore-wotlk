@@ -42,9 +42,8 @@ private:
     void SendWorldAnnouncement(uint8 textId);
     void SendNotificationAnnouncement(uint8 textId);
 
-    typedef std::map<uint8, std::vector<std::string>> AutobroadcastsMap;
-    typedef std::map<uint8, uint8> AutobroadcastsWeightMap;
-
+    using AutobroadcastsMap = std::map<uint8, std::vector<std::string>>;
+    using AutobroadcastsWeightMap = std::map<uint8, uint8>;
     AutobroadcastsMap _autobroadcasts;                  // autobroadcast messages
     AutobroadcastsWeightMap _autobroadcastsWeights;    // Weights for each message
 

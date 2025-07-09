@@ -70,8 +70,7 @@ struct FormationInfo
     bool HasGroupFlag(uint16 flag) const { return !!(groupAI & flag); }
 };
 
-typedef std::unordered_map<ObjectGuid::LowType/*memberDBGUID*/, FormationInfo /*formationInfo*/>   CreatureGroupInfoType;
-
+using CreatureGroupInfoType = std::unordered_map<ObjectGuid::LowType/*memberDBGUID*/, FormationInfo /*formationInfo*/>;
 class FormationMgr
 {
 public:
@@ -90,8 +89,7 @@ class CreatureGroup
 {
 public:
     // pussywizard: moved public to the top so it compiles and typedef is public
-    typedef std::map<Creature*, FormationInfo>  CreatureGroupMemberType;
-
+    using CreatureGroupMemberType = std::map<Creature*, FormationInfo>;
     //Group cannot be created empty
     explicit CreatureGroup(uint32 id) : m_leader(nullptr), m_groupID(id), m_Formed(false) {}
     ~CreatureGroup() {}

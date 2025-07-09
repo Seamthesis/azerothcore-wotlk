@@ -42,17 +42,15 @@ struct GraveyardData
     [[nodiscard]] bool IsNeutralOrFriendlyToTeam(TeamId playerTeamId) const { return teamId == TEAM_NEUTRAL || playerTeamId == TEAM_NEUTRAL || teamId == playerTeamId; }
 };
 
-typedef std::multimap<uint32, GraveyardData> WGGraveyardContainer;
-typedef std::pair<WGGraveyardContainer::const_iterator, WGGraveyardContainer::const_iterator> GraveyardMapBounds;
-typedef std::pair<WGGraveyardContainer::iterator, WGGraveyardContainer::iterator> GraveyardMapBoundsNonConst;
-
+using WGGraveyardContainer = std::multimap<uint32, GraveyardData>;
+using GraveyardMapBounds = std::pair<WGGraveyardContainer::const_iterator, WGGraveyardContainer::const_iterator>;
+using GraveyardMapBoundsNonConst = std::pair<WGGraveyardContainer::iterator, WGGraveyardContainer::iterator>;
 class Graveyard
 {
 public:
     static Graveyard* instance();
 
-    typedef std::unordered_map<uint32, GraveyardStruct> GraveyardContainer;
-
+    using GraveyardContainer = std::unordered_map<uint32, GraveyardStruct>;
     GraveyardStruct const* GetGraveyard(uint32 ID) const;
     GraveyardStruct const* GetGraveyard(const std::string& name) const;
     GraveyardStruct const* GetDefaultGraveyard(TeamId teamId);

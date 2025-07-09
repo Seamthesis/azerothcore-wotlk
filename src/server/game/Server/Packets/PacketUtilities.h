@@ -118,15 +118,13 @@ namespace WorldPackets
     template<typename T, std::size_t N = 1000 /*select a sane default limit*/>
     class Array
     {
-        typedef std::vector<T> storage_type;
-
-        typedef typename storage_type::value_type value_type;
-        typedef typename storage_type::size_type size_type;
-        typedef typename storage_type::reference reference;
-        typedef typename storage_type::const_reference const_reference;
-        typedef typename storage_type::iterator iterator;
-        typedef typename storage_type::const_iterator const_iterator;
-
+        using storage_type = std::vector<T>;
+        using value_type = typename storage_type::value_type;
+        using size_type = typename storage_type::size_type;
+        using reference = typename storage_type::reference;
+        using const_reference = typename storage_type::const_reference;
+        using iterator = typename storage_type::iterator;
+        using const_iterator = typename storage_type::const_iterator;
     public:
         Array() : _limit(N) { }
         Array(size_type limit) : _limit(limit) { }

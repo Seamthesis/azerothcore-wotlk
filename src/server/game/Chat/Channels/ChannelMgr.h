@@ -27,9 +27,8 @@
 
 class ChannelMgr
 {
-    typedef std::unordered_map<std::wstring, Channel*> ChannelMap;
-    typedef std::map<std::string, ChannelRights> ChannelRightsMap;
-
+    using ChannelMap = std::unordered_map<std::wstring, Channel*>;
+    using ChannelRightsMap = std::map<std::string, ChannelRights>;
 public:
     ChannelMgr(TeamId teamId) : _teamId(teamId)
     { }

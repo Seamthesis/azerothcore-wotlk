@@ -285,12 +285,10 @@ struct CreatureTemplate
     void InitializeQueryData();
 };
 
-typedef std::vector<uint32> CreatureQuestItemList;
-typedef std::unordered_map<uint32, CreatureQuestItemList> CreatureQuestItemMap;
-
+using CreatureQuestItemList = std::vector<uint32>;
+using CreatureQuestItemMap = std::unordered_map<uint32, CreatureQuestItemList>;
 // Benchmarked: Faster than std::map (insert/find)
-typedef std::unordered_map<uint32, CreatureTemplate> CreatureTemplateContainer;
-
+using CreatureTemplateContainer = std::unordered_map<uint32, CreatureTemplate>;
 // GCC have alternative #pragma pack(N) syntax and old gcc version not support pack(push, N), also any gcc version not support it at some platform
 #if defined(__GNUC__)
 #pragma pack(1)
@@ -337,8 +335,7 @@ struct CreatureBaseStats
     static CreatureBaseStats const* GetBaseStats(uint8 level, uint8 unitClass);
 };
 
-typedef std::unordered_map<uint16, CreatureBaseStats> CreatureBaseStatsContainer;
-
+using CreatureBaseStatsContainer = std::unordered_map<uint16, CreatureBaseStats>;
 struct CreatureLocale
 {
     std::vector<std::string> Name;
@@ -362,9 +359,8 @@ struct EquipmentInfo
 };
 
 // Benchmarked: Faster than std::map (insert/find)
-typedef std::unordered_map<uint8, EquipmentInfo> EquipmentInfoContainerInternal;
-typedef std::unordered_map<uint32, EquipmentInfoContainerInternal> EquipmentInfoContainer;
-
+using EquipmentInfoContainerInternal = std::unordered_map<uint8, EquipmentInfo>;
+using EquipmentInfoContainer = std::unordered_map<uint32, EquipmentInfoContainerInternal>;
 // from `creature` table
 struct CreatureData
 {
@@ -404,8 +400,7 @@ struct CreatureModelInfo
 };
 
 // Benchmarked: Faster than std::map (insert/find)
-typedef std::unordered_map<uint16, CreatureModelInfo> CreatureModelContainer;
-
+using CreatureModelContainer = std::unordered_map<uint16, CreatureModelInfo>;
 enum InhabitTypeValues
 {
     INHABIT_GROUND = 1,
@@ -447,8 +442,7 @@ struct CreatureAddon
     VisibilityDistanceType visibilityDistanceType;
 };
 
-typedef std::unordered_map<uint32, CreatureAddon> CreatureAddonContainer;
-
+using CreatureAddonContainer = std::unordered_map<uint32, CreatureAddon>;
 // Vendors
 struct VendorItem
 {
@@ -463,8 +457,7 @@ struct VendorItem
     //helpers
     bool IsGoldRequired(ItemTemplate const* pProto) const { return pProto->HasFlag2(ITEM_FLAG2_DONT_IGNORE_BUY_PRICE) || !ExtendedCost; }
 };
-typedef std::vector<VendorItem*> VendorItemList;
-
+using VendorItemList = std::vector<VendorItem*>;
 struct VendorItemData
 {
     VendorItemList m_items;
@@ -501,8 +494,7 @@ struct VendorItemCount
     time_t lastIncrementTime;
 };
 
-typedef std::list<VendorItemCount> VendorItemCounts;
-
+using VendorItemCounts = std::list<VendorItemCount>;
 struct TrainerSpell
 {
     TrainerSpell()
@@ -523,8 +515,7 @@ struct TrainerSpell
     [[nodiscard]] bool IsCastable() const { return learnedSpell[0] != spell; }
 };
 
-typedef std::unordered_map<uint32 /*spellid*/, TrainerSpell> TrainerSpellMap;
-
+using TrainerSpellMap = std::unordered_map<uint32 /*spellid*/, TrainerSpell>;
 struct TrainerSpellData
 {
     TrainerSpellData()  = default;
@@ -545,6 +536,5 @@ struct CreatureSpellCooldown
     uint32 end{0};
 };
 
-typedef std::map<uint32, CreatureSpellCooldown> CreatureSpellCooldowns;
-
+using CreatureSpellCooldowns = std::map<uint32, CreatureSpellCooldown>;
 #endif // AZEROTHCORE_CREATUREDATA_H

@@ -180,8 +180,7 @@ private:
     std::string _chatLog; // No need to store in db, will be refreshed every session client side
 };
 
-typedef std::map<uint32, GmTicket*> GmTicketList;
-
+using GmTicketList = std::map<uint32, GmTicket*>;
 class TicketMgr
 {
 private:

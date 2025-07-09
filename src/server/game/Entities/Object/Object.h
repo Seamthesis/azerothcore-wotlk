@@ -95,9 +95,8 @@ class MotionTransport;
 
 struct PositionFullTerrainStatus;
 
-typedef std::unordered_map<Player*, UpdateData> UpdateDataMapType;
-typedef GuidUnorderedSet UpdatePlayerSet;
-
+using UpdateDataMapType = std::unordered_map<Player*, UpdateData>;
+using UpdatePlayerSet = GuidUnorderedSet;
 static constexpr Milliseconds HEARTBEAT_INTERVAL = 5s + 200ms;
 
 class Object

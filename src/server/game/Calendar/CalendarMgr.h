@@ -270,10 +270,9 @@ private:
     std::string _title;
     std::string _description;
 };
-typedef std::vector<CalendarInvite*> CalendarInviteStore;
-typedef std::unordered_set<CalendarEvent*> CalendarEventStore;
-typedef std::unordered_map<uint64 /* eventId */, CalendarInviteStore > CalendarEventInviteStore;
-
+using CalendarInviteStore = std::vector<CalendarInvite*>;
+using CalendarEventStore = std::unordered_set<CalendarEvent*>;
+using CalendarEventInviteStore = std::unordered_map<uint64 /* eventId */, CalendarInviteStore >;
 class CalendarMgr
 {
 private:

@@ -180,7 +180,7 @@ class WorldState
         void HandleSunwellGateTransition(uint32 newGate);
         void SetSunwellGateCounter(SunwellGateCounters index, uint32 value);
     private:
-        typedef std::map<uint32, uint64> WorldStatesMap;
+        using WorldStatesMap = std::map<uint32, uint64>;
         WorldStatesMap _worldstates;
         void SendWorldstateUpdate(std::mutex& mutex, GuidVector const& guids, uint32 value, uint32 worldStateId);
         void StopSunsReachPhase(bool forward);

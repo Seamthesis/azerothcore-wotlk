@@ -145,10 +145,9 @@ struct ZoneDynamicInfo
 #pragma pack(pop)
 #endif
 
-typedef std::map<uint32/*leaderDBGUID*/, CreatureGroup*>        CreatureGroupHolderType;
-typedef std::unordered_map<uint32 /*zoneId*/, ZoneDynamicInfo> ZoneDynamicInfoMap;
-typedef std::set<MotionTransport*> TransportsContainer;
-
+using CreatureGroupHolderType = std::map<uint32/*leaderDBGUID*/, CreatureGroup*>;
+using ZoneDynamicInfoMap = std::unordered_map<uint32 /*zoneId*/, ZoneDynamicInfo>;
+using TransportsContainer = std::set<MotionTransport*>;
 enum EncounterCreditType : uint8
 {
     ENCOUNTER_CREDIT_KILL_CREATURE  = 0,
@@ -332,7 +331,7 @@ public:
 
     void SendToPlayers(WorldPacket const* data) const;
 
-    typedef MapRefMgr PlayerList;
+    using PlayerList = MapRefMgr;
     [[nodiscard]] PlayerList const& GetPlayers() const { return m_mapRefMgr; }
 
     //per-map script storage
@@ -366,10 +365,10 @@ public:
 
     MapStoredObjectTypesContainer& GetObjectsStore() { return _objectsStore; }
 
-    typedef std::unordered_multimap<ObjectGuid::LowType, Creature*> CreatureBySpawnIdContainer;
+    using CreatureBySpawnIdContainer = std::unordered_multimap<ObjectGuid::LowType, Creature*>;
     CreatureBySpawnIdContainer& GetCreatureBySpawnIdStore() { return _creatureBySpawnIdStore; }
 
-    typedef std::unordered_multimap<ObjectGuid::LowType, GameObject*> GameObjectBySpawnIdContainer;
+    using GameObjectBySpawnIdContainer = std::unordered_multimap<ObjectGuid::LowType, GameObject*>;
     GameObjectBySpawnIdContainer& GetGameObjectBySpawnIdStore() { return _gameobjectBySpawnIdStore; }
 
     [[nodiscard]] std::unordered_set<Corpse*> const* GetCorpsesInCell(uint32 cellId) const
@@ -560,7 +559,7 @@ protected:
     MapRefMgr m_mapRefMgr;
     MapRefMgr::iterator m_mapRefIter;
 
-    typedef std::set<WorldObject*> ActiveNonPlayers;
+    using ActiveNonPlayers = std::set<WorldObject*>;
     ActiveNonPlayers m_activeNonPlayers;
     ActiveNonPlayers::iterator m_activeNonPlayersIter;
 
@@ -590,7 +589,7 @@ private:
     std::map<WorldObject*, bool> i_objectsToSwitch;
     std::unordered_set<WorldObject*> i_worldObjects;
 
-    typedef std::multimap<time_t, ScriptAction> ScriptScheduleMap;
+    using ScriptScheduleMap = std::multimap<time_t, ScriptAction>;
     ScriptScheduleMap m_scriptSchedule;
 
     template<class T>

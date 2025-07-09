@@ -21,8 +21,7 @@
 #include "FactoryHolder.h"
 #include "ObjectRegistry.h"
 
-typedef FactoryHolder<CreatureAI, Creature> CreatureAICreator;
-
+using CreatureAICreator = FactoryHolder<CreatureAI, Creature>;
 struct SelectableAI : public CreatureAICreator, public Permissible<Creature>
 {
     SelectableAI(std::string const& name) : CreatureAICreator(name), Permissible<Creature>() { }
@@ -44,7 +43,7 @@ struct CreatureAIFactory : public SelectableAI
     }
 };
 
-typedef CreatureAICreator::FactoryHolderRegistry CreatureAIRegistry;
+using CreatureAIRegistry = CreatureAICreator::FactoryHolderRegistry;
 #define sCreatureAIRegistry CreatureAIRegistry::instance()
 
 #endif

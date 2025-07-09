@@ -29,8 +29,7 @@ private:
 public:
     static GroupMgr* instance();
 
-    typedef std::map<uint32, Group*> GroupContainer;
-
+    using GroupContainer = std::map<uint32, Group*>;
     Group* GetGroupByGUID(ObjectGuid::LowType guid) const;
 
     void InitGroupIds();
@@ -42,7 +41,7 @@ public:
     void RemoveGroup(Group* group);
 
 protected:
-    typedef std::vector<bool> GroupIds;
+    using GroupIds = std::vector<bool>;
     GroupIds            _groupIds;
     ObjectGuid::LowType _nextGroupId;
     GroupContainer      GroupStore;

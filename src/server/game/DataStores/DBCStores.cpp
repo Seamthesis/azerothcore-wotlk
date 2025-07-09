@@ -28,12 +28,10 @@
 #include "World.h"
 #include <map>
 
-typedef std::map<uint16, uint32> AreaFlagByAreaID;
-typedef std::map<uint32, uint32> AreaFlagByMapID;
-
-typedef std::tuple<int16, int8, int32> WMOAreaTableKey;
-typedef std::map<WMOAreaTableKey, WMOAreaTableEntry const*> WMOAreaInfoByTripple;
-
+using AreaFlagByAreaID = std::map<uint16, uint32>;
+using AreaFlagByMapID = std::map<uint32, uint32>;
+using WMOAreaTableKey = std::tuple<int16, int8, int32>;
+using WMOAreaInfoByTripple = std::map<WMOAreaTableKey, WMOAreaTableEntry const*>;
 DBCStorage <AreaTableEntry> sAreaTableStore(AreaTableEntryfmt);
 DBCStorage <AreaGroupEntry> sAreaGroupStore(AreaGroupEntryfmt);
 DBCStorage <AreaPOIEntry> sAreaPOIStore(AreaPOIEntryfmt);
@@ -71,7 +69,7 @@ DBCStorage <DurabilityCostsEntry> sDurabilityCostsStore(DurabilityCostsfmt);
 DBCStorage <EmotesEntry> sEmotesStore(EmotesEntryfmt);
 DBCStorage <EmotesTextEntry> sEmotesTextStore(EmotesTextEntryfmt);
 
-typedef std::map<uint32, SimpleFactionsList> FactionTeamMap;
+using FactionTeamMap = std::map<uint32, SimpleFactionsList>;
 static FactionTeamMap sFactionTeamMap;
 DBCStorage <FactionEntry> sFactionStore(FactionEntryfmt);
 DBCStorage <FactionTemplateEntry> sFactionTemplateStore(FactionTemplateEntryfmt);
@@ -197,8 +195,7 @@ DBCStorage <WMOAreaTableEntry> sWMOAreaTableStore(WMOAreaTableEntryfmt);
 DBCStorage <WorldMapAreaEntry> sWorldMapAreaStore(WorldMapAreaEntryfmt);
 DBCStorage <WorldMapOverlayEntry> sWorldMapOverlayStore(WorldMapOverlayEntryfmt);
 
-typedef std::list<std::string> StoreProblemList;
-
+using StoreProblemList = std::list<std::string>;
 uint32 DBCFileCount = 0;
 
 static bool LoadDBC_assert_print(uint32 fsize, uint32 rsize, const std::string& filename)

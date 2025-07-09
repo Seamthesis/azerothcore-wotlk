@@ -117,7 +117,7 @@ class PlayerSocial
         uint32 GetNumberOfSocialsWithFlag(SocialFlag flag) const;
     private:
         bool _checkContact(ObjectGuid guid, SocialFlag flags) const;
-        typedef std::map<ObjectGuid, FriendInfo> PlayerSocialMap;
+        using PlayerSocialMap = std::map<ObjectGuid, FriendInfo>;
         PlayerSocialMap m_playerSocialMap;
         ObjectGuid m_playerGUID;
 };
@@ -140,7 +140,7 @@ class SocialMgr
         // Loading
         PlayerSocial* LoadFromDB(PreparedQueryResult result, ObjectGuid guid);
     private:
-        typedef std::map<ObjectGuid, PlayerSocial> SocialMap;
+        using SocialMap = std::map<ObjectGuid, PlayerSocial>;
         SocialMap m_socialMap;
 };
 

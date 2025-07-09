@@ -39,7 +39,7 @@ struct GameobjectModelData
     bool isWmo;
 };
 
-typedef std::unordered_map<uint32, GameobjectModelData> ModelList;
+using ModelList = std::unordered_map<uint32, GameobjectModelData>;
 ModelList model_list;
 
 void LoadGameObjectModelList(std::string const& dataPath)

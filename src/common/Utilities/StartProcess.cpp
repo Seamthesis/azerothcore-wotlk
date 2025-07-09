@@ -47,9 +47,8 @@ namespace Acore
         T callback_;
 
     public:
-        typedef char      char_type;
-        typedef sink_tag  category;
-
+        using char_type = char;
+        using category = sink_tag;
         // Requires a callback type which has a void(std::string) signature
         ACLogSink(T callback)
             : callback_(std::move(callback)) { }

@@ -52,16 +52,14 @@ class ObjectGuid;
 #define MAP_HALFSIZE            (MAP_SIZE/2)
 
 // Creature used instead pet to simplify *::Visit templates (not required duplicate code for Creature->Pet case)
-typedef TYPELIST_5(GameObject, Player, Creature/*pets*/, Corpse/*resurrectable*/, DynamicObject/*farsight target*/) AllWorldObjectTypes;
-typedef TYPELIST_4(GameObject, Creature/*except pets*/, DynamicObject, Corpse/*Bones*/) AllGridObjectTypes;
-typedef TYPELIST_5(Creature, GameObject, DynamicObject, Pet, Corpse) AllMapStoredObjectTypes;
-
-typedef GridRefMgr<Corpse>          CorpseMapType;
-typedef GridRefMgr<Creature>        CreatureMapType;
-typedef GridRefMgr<DynamicObject>   DynamicObjectMapType;
-typedef GridRefMgr<GameObject>      GameObjectMapType;
-typedef GridRefMgr<Player>          PlayerMapType;
-
+using AllWorldObjectTypes = TYPELIST_5(GameObject, Player, Creature/*pets*/, Corpse/*resurrectable*/, DynamicObject/*farsight target*/);
+using AllGridObjectTypes = TYPELIST_4(GameObject, Creature/*except pets*/, DynamicObject, Corpse/*Bones*/);
+using AllMapStoredObjectTypes = TYPELIST_5(Creature, GameObject, DynamicObject, Pet, Corpse);
+using CorpseMapType = GridRefMgr<Corpse>;
+using CreatureMapType = GridRefMgr<Creature>;
+using DynamicObjectMapType = GridRefMgr<DynamicObject>;
+using GameObjectMapType = GridRefMgr<GameObject>;
+using PlayerMapType = GridRefMgr<Player>;
 enum GridMapTypeMask
 {
     GRID_MAP_TYPE_MASK_CORPSE           = 0x01,
@@ -72,13 +70,11 @@ enum GridMapTypeMask
     GRID_MAP_TYPE_MASK_ALL              = 0x1F
 };
 
-typedef GridCell<AllWorldObjectTypes, AllGridObjectTypes> GridCellType;
-typedef MapGrid<AllWorldObjectTypes, AllGridObjectTypes> MapGridType;
-
-typedef TypeMapContainer<AllGridObjectTypes> GridTypeMapContainer;
-typedef TypeMapContainer<AllWorldObjectTypes> WorldTypeMapContainer;
-typedef TypeUnorderedMapContainer<AllMapStoredObjectTypes, ObjectGuid> MapStoredObjectTypesContainer;
-
+using GridCellType = GridCell<AllWorldObjectTypes, AllGridObjectTypes>;
+using MapGridType = MapGrid<AllWorldObjectTypes, AllGridObjectTypes>;
+using GridTypeMapContainer = TypeMapContainer<AllGridObjectTypes>;
+using WorldTypeMapContainer = TypeMapContainer<AllWorldObjectTypes>;
+using MapStoredObjectTypesContainer = TypeUnorderedMapContainer<AllMapStoredObjectTypes, ObjectGuid>;
 template<uint32 LIMIT>
 struct CoordPair
 {
@@ -164,9 +160,8 @@ bool operator!=(const CoordPair<LIMIT>& p1, const CoordPair<LIMIT>& p2)
     return !(p1 == p2);
 }
 
-typedef CoordPair<MAX_NUMBER_OF_GRIDS> GridCoord;
-typedef CoordPair<TOTAL_NUMBER_OF_CELLS_PER_MAP> CellCoord;
-
+using GridCoord = CoordPair<MAX_NUMBER_OF_GRIDS>;
+using CellCoord = CoordPair<TOTAL_NUMBER_OF_CELLS_PER_MAP>;
 namespace Acore
 {
     template<class RET_TYPE, int CENTER_VAL>

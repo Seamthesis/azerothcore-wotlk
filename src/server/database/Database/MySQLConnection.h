@@ -100,8 +100,7 @@ protected:
     virtual void DoPrepareStatements() = 0;
     virtual bool _HandleMySQLErrno(uint32 errNo, char const* err = "", uint8 attempts = 5);
 
-    typedef std::vector<std::unique_ptr<MySQLPreparedStatement>> PreparedStatementContainer;
-
+    using PreparedStatementContainer = std::vector<std::unique_ptr<MySQLPreparedStatement>>;
     PreparedStatementContainer m_stmts; //! PreparedStatements storage
     bool m_reconnecting;  //! Are we reconnecting?
     bool m_prepareError;  //! Was there any error while preparing statements?

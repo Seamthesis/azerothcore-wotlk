@@ -2562,7 +2562,7 @@ void Spell::EffectLearnSpell(SpellEffIndex effIndex)
         player->GetGUID().ToString(), spellToLearn, m_caster->GetGUID().ToString());
 }
 
-typedef std::list<std::pair<uint32, ObjectGuid>> DispelList;
+using DispelList = std::list<std::pair<uint32, ObjectGuid>>;
 void Spell::EffectDispel(SpellEffIndex effIndex)
 {
     if (effectHandleMode != SPELL_EFFECT_HANDLE_HIT_TARGET)

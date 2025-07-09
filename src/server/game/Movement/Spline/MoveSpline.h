@@ -39,7 +39,7 @@ namespace Movement
     class MoveSpline
     {
     public:
-        typedef Spline<int32> MySpline;
+        using MySpline = Spline<int32>;
         enum UpdateResult
         {
             Result_None         = 0x01,

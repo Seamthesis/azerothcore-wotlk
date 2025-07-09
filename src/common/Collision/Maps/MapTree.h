@@ -41,8 +41,8 @@ namespace VMAP
 
     class StaticMapTree
     {
-        typedef std::unordered_map<uint32, bool> loadedTileMap;
-        typedef std::unordered_map<uint32, uint32> loadedSpawnMap;
+        using loadedTileMap = std::unordered_map<uint32, bool>;
+        using loadedSpawnMap = std::unordered_map<uint32, uint32>;
     private:
         uint32 iMapID;
         bool iIsTiled;

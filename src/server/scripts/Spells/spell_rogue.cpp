@@ -352,7 +352,7 @@ private:
 };
 
 #define KillingSpreeScriptName "spell_rog_killing_spree"
-typedef spell_rog_killing_spree_aura spell_rog_killing_spree_aura_script;
+using spell_rog_killing_spree_aura_script = spell_rog_killing_spree_aura;
 class spell_rog_killing_spree : public SpellScript
 {
     PrepareSpellScript(spell_rog_killing_spree);

@@ -391,8 +391,8 @@ public:
     [[nodiscard]] uint32 GetFreeSlotsForTeam(TeamId teamId) const;
     [[nodiscard]] uint32 GetMaxFreeSlots() const;
 
-    typedef std::set<Player*> SpectatorList;
-    typedef std::map<ObjectGuid, ObjectGuid> ToBeTeleportedMap;
+    using SpectatorList = std::set<Player*>;
+    using ToBeTeleportedMap = std::map<ObjectGuid, ObjectGuid>;
     void AddSpectator(Player* p) { m_Spectators.insert(p); }
     void RemoveSpectator(Player* p) { m_Spectators.erase(p); }
     bool HaveSpectators() { return !m_Spectators.empty(); }
@@ -405,14 +405,14 @@ public:
     [[nodiscard]] bool isBattleground() const { return !m_IsArena; }
     [[nodiscard]] bool isRated() const        { return m_IsRated; }
 
-    typedef std::map<ObjectGuid, Player*> BattlegroundPlayerMap;
+    using BattlegroundPlayerMap = std::map<ObjectGuid, Player*>;
     [[nodiscard]] BattlegroundPlayerMap const& GetPlayers() const { return m_Players; }
     [[nodiscard]] uint32 GetPlayersSize() const { return m_Players.size(); }
 
     void ReadyMarkerClicked(Player* p); // pussywizard
     GuidSet readyMarkerClickedSet; // pussywizard
 
-    typedef std::unordered_map<ObjectGuid::LowType, BattlegroundScore*> BattlegroundScoreMap;
+    using BattlegroundScoreMap = std::unordered_map<ObjectGuid::LowType, BattlegroundScore*>;
     typedef std::unordered_map<ObjectGuid, ArenaLogEntryData> ArenaLogEntryDataMap; // pussywizard
     ArenaLogEntryDataMap ArenaLogEntries; // pussywizard
     [[nodiscard]] BattlegroundScoreMap const* GetPlayerScores() const { return &PlayerScores; }
@@ -535,8 +535,8 @@ public:
     void SetHoliday(bool is_holiday);
 
     /// @todo: make this protected:
-    typedef GuidVector BGObjects;
-    typedef GuidVector BGCreatures;
+    using BGObjects = GuidVector;
+    using BGCreatures = GuidVector;
     BGObjects BgObjects;
     BGCreatures BgCreatures;
     void SpawnBGObject(uint32 type, uint32 respawntime, uint32 forceRespawnDelay = 0);

@@ -28,9 +28,8 @@ namespace Movement
     class SplineBase
     {
     public:
-        typedef int index_type;
-        typedef std::vector<Vector3> ControlArray;
-
+        using index_type = int;
+        using ControlArray = std::vector<Vector3>;
         enum EvaluationMode
         {
             ModeLinear,
@@ -138,8 +137,8 @@ namespace Movement
     class Spline : public SplineBase
     {
     public:
-        typedef length_type LengthType;
-        typedef std::vector<length_type> LengthArray;
+        using LengthType = length_type;
+        using LengthArray = std::vector<length_type>;
     protected:
         LengthArray lengths;
 

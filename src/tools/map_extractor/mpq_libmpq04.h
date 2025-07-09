@@ -67,8 +67,7 @@ public:
         delete[] buffer;
     }
 };
-typedef std::deque<MPQArchive*> ArchiveSet;
-
+using ArchiveSet = std::deque<MPQArchive*>;
 // cppcheck-suppress ctuOneDefinitionRuleViolation
 class MPQFile
 {

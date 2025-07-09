@@ -359,8 +359,7 @@ public:
     }
 };
 
-typedef npc_troll_volunteer::npc_troll_volunteerAI VolunteerAI;
-
+using VolunteerAI = npc_troll_volunteer::npc_troll_volunteerAI;
 class spell_mount_check_aura : public AuraScript
 {
     PrepareAuraScript(spell_mount_check_aura);

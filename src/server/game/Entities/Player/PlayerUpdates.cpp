@@ -1679,6 +1679,8 @@ template <class T>
 void Player::UpdateVisibilityOf(T* target, UpdateData& data,
                                 std::vector<Unit*>& visibleNow)
 {
+    GetMap()->AddObjectToPendingUpdateList(target);
+
     if (HaveAtClient(target))
     {
         if (!CanSeeOrDetect(target, false, true))
